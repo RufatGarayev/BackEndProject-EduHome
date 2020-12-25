@@ -12,5 +12,9 @@ namespace EduHome.ViewModels
         public List<NoticeBoard> NoticeBoards { get; set; }
         public List<SectionDescription> SectionDescriptions { get; set; }
         public ChooseEduHome ChooseEduHome { get; set; }
+        public List<CoursesWeOffer> CoursesWeOffers { get; set; }
+        public List<UpcomingEvent> UpcomingEvents { get; set; }
+        public Student Student { get; set; }
+        public List<LatestFromBlog> LatestFromBlogs { get; set; }
     }
 }
