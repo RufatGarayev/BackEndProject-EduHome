@@ -14,7 +14,7 @@ namespace EduHome.ViewModels
         public ChooseEduHome ChooseEduHome { get; set; }
         public List<CoursesWeOffer> CoursesWeOffers { get; set; }
         public List<UpcomingEvent> UpcomingEvents { get; set; }
-        public Student Student { get; set; }
+        public List<Student> Students { get; set; }
         public List<LatestFromBlog> LatestFromBlogs { get; set; }
     }
 }

@@ -21,5 +21,9 @@ namespace EduHome.DAL
         public DbSet<UpcomingEvent> UpcomingEvents { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<LatestFromBlog> LatestFromBlogs { get; set; }
+        public DbSet<Bio> Bios { get; set; }
+        public DbSet<WelcomeToEduHome> WelcomeToEduHomes { get; set; }
+        public DbSet<TakeAVideoTour> TakeAVideoTours { get; set; }
+        public DbSet<Event> Events { get; set; }
     }
 }
