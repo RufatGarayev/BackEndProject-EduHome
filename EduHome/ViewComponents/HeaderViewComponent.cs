@@ -21,5 +21,6 @@ namespace EduHome.ViewComponents
             Bio model = _context.Bios.FirstOrDefault();
             return View(await Task.FromResult(model));
         }
+
     }
 }

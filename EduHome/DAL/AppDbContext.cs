@@ -26,5 +26,13 @@ namespace EduHome.DAL
         public DbSet<TakeAVideoTour> TakeAVideoTours { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<OurTeacher> OurTeachers { get; set; }
+        public DbSet<Map> Maps { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<CoursesText> CoursesTexts { get; set; }
+        public DbSet<CourseFeature> CourseFeatures { get; set; }
+        public DbSet<BlogBanner> BlogBanners { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
     }
 }

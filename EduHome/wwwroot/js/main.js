@@ -128,3 +128,26 @@ $(".notice-left").niceScroll({
         });
 
 })(jQuery);	
+
+
+/*------------------------------------
+	Search
+--------------------------------------*/
+$(document).ready(function () {
+    $(document).on('keyup', '#search-input', function () {
+
+        let searchInput = $(this).val().trim();
+        $("#search-list li").remove();
+        if (searchInput.length > 0) {
+
+            $.ajax({
+                url: "/Home/Search?search=" + searchInput,
+                type: "Get",
+                success: function (res) {
+                    $("#search-list").append(res);
+                }
+            });
+        }
+    })
+
+})
