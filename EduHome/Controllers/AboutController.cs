@@ -20,6 +20,7 @@ namespace EduHome.Controllers
         {
             AboutVM aboutVM = new AboutVM {
                 WelcomeToEduHome = _context.WelcomeToEduHomes.Where(wte => wte.IsDeleted==false).FirstOrDefault(),
+                OurTeachers = _context.OurTeachers.Where(t => t.IsDeleted==false).Take(4).ToList(),
                 Students = _context.Students.Where(stu => stu.IsDeleted == false).ToList(),
                 NoticeBoards = _context.NoticeBoards.Where(stu => stu.IsDeleted == false).ToList(),
                 TakeAVideoTour = _context.TakeAVideoTours.Where(stu => stu.IsDeleted == false).FirstOrDefault()

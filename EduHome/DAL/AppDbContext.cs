@@ -25,5 +25,6 @@ namespace EduHome.DAL
         public DbSet<WelcomeToEduHome> WelcomeToEduHomes { get; set; }
         public DbSet<TakeAVideoTour> TakeAVideoTours { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<OurTeacher> OurTeachers { get; set; }
     }
 }

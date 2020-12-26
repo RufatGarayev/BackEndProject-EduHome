@@ -1,0 +1,50 @@
+﻿@model OurTeacherVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>our teachers</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Teacher Start -->
+<div class="teacher-area pt-150 pb-105">
+    <div class="container">
+        <div class="row">
+            @foreach (OurTeacher t in Model.OurTeachers)
+            {
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class="single-teacher mb-60">
+                        <div class="single-teacher-img">
+                            <a href="teacher-details.html"><img src="img/teacher/@t.Image" alt="teacher"></a>
+                        </div>
+                        <div class="single-teacher-content text-center">
+                            <h2><a href="teacher-details.html">@t.Name</a></h2>
+                            <h4>@t.Position</h4>
+                            <ul>
+                                <li><a href="@t.Facebook"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="@t.Pinterest"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
+                                <li><a href="@t.Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Teacher End -->
