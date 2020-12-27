@@ -3,6 +3,28 @@
     ViewData["Title"] = "Index";
 }
 
+<!--HeaderTop Start-->
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="header-top-left">
+                    <p>HAVE ANY QUESTION ?  +880 5698  598  6587</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="header-top-right text-right">
+                    <ul>
+                        <li><a href="login.html">login</a></li>
+                        <li><a href="signup.html">signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--HeaderTop End-->
+
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -29,10 +51,10 @@
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <div class="single-teacher mb-60">
                         <div class="single-teacher-img">
-                            <a href="teacher-details.html"><img src="img/teacher/@t.Image" alt="teacher"></a>
+                            <a asp-controller="TeacherDetails" asp-action="Index"><img src="img/teacher/@t.Image" alt="teacher"></a>
                         </div>
                         <div class="single-teacher-content text-center">
-                            <h2><a href="teacher-details.html">@t.Name</a></h2>
+                            <h2><a asp-controller="TeacherDetails" asp-action="Index">@t.Name</a></h2>
                             <h4>@t.Position</h4>
                             <ul>
                                 <li><a href="@t.Facebook"><i class="zmdi zmdi-facebook"></i></a></li>

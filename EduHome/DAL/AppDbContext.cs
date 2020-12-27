@@ -1,4 +1,5 @@
 ﻿using EduHome.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EduHome.DAL
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -40,5 +41,6 @@ namespace EduHome.DAL
         public DbSet<TeacherBasicInfo> TeacherBasicInfos { get; set; }
         public DbSet<TeacherContactInfo> TeacherContactInfos { get; set; }
         public DbSet<TeacherSkill> TeacherSkills { get; set; }
+        public DbSet<LeaveMessage> LeaveMessages { get; set; }
     }
 }

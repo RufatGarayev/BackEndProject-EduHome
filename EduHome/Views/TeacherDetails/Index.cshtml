@@ -3,6 +3,28 @@
     ViewData["Title"] = "Index";
 }
 
+<!--HeaderTop Start-->
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="header-top-left">
+                    <p>HAVE ANY QUESTION ?  +880 5698  598  6587</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="header-top-right text-right">
+                    <ul>
+                        <li><a href="login.html">login</a></li>
+                        <li><a href="signup.html">signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--HeaderTop End-->
+
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -55,7 +77,7 @@
                         <li><a @Model.TeacherContactInfo.Facebook><i class="zmdi zmdi-facebook"></i></a></li>
                         <li><a @Model.TeacherContactInfo.Pinterest><i class="zmdi zmdi-pinterest"></i></a></li>
                         <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
-                        <li><a @Model.TeacherContactInfo.Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
+                        <li><a @Model.TeacherContactInfo.Twitter "><i class="zmdi zmdi-twitter"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -71,7 +93,7 @@
                                 <div class="skill-bar-item">
                                     <span>@skill.Name</span>
                                     <div class="progress">
-                                        <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                        <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="@skill.CompletedPercent; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
                                             <span class="text-top">@skill.Percent%</span>
                                         </div>
                                     </div>

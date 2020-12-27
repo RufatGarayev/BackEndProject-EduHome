@@ -25,7 +25,8 @@ namespace EduHome.Controllers
                 BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted==false).FirstOrDefault(),
                 Posts = _context.Posts.Where(lfb => lfb.IsDeleted==false).Take(3).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted==false).ToList(),
-                Tags = _context.Tags.Where(t => t.IsDeleted==false).ToList()
+                Tags = _context.Tags.Where(t => t.IsDeleted==false).ToList(),
+                LeaveMessage = _context.LeaveMessages.FirstOrDefault()
             };
             return View(coursesDetailsVM);
         }

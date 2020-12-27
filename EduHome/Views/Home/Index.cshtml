@@ -73,7 +73,7 @@
                 <div class="choose-content text-left">
                     <h2>@Model.ChooseEduHome.Title</h2>
                     @Html.Raw(Model.ChooseEduHome.Description)
-                    <a class="default-btn" href="course-details.html">view courses</a>
+                    <a class="default-btn" asp-controller="CoursesDetails" asp-action="Index">view courses</a>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                     <div class="course-content">
                         <h3><a href="course-details.html">@cwo.Title</a></h3>
                         <p>@cwo.Description</p>
-                        <a class="default-btn" href="course-details.html">read more</a>
+                        <a class="default-btn" asp-controller="CoursesDetails" asp-action="Index">read more</a>
                     </div>
                   </div>
                 </div>
@@ -133,18 +133,18 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="single-event mb-35">
                         <div class="event-date">
-                            <h3><a href="event-details.html">20 <span>June</span></a></h3>
+                            <h3><a asp-controller="EventDetails" asp-action="Index">20 <span>June</span></a></h3>
                         </div>
                         <div class="event-content text-left">
                             <div class="event-content-left">
-                                <h4><a href="event-details.html">@ue.Title</a></h4>
+                                <h4><a asp-controller="EventDetails" asp-action="Index">@ue.Title</a></h4>
                                 <ul>
                                     <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
                                     <li><i class="fa fa-map-marker"></i>@ue.Location</li>
                                 </ul>
                             </div>
                             <div class="event-content-right">
-                                <a class="default-btn" href="event-details.html">join now</a>
+                                <a class="default-btn" asp-controller="EventDetails" asp-action="Index">join now</a>
                             </div>
                         </div>
                     </div>
@@ -199,9 +199,9 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="single-blog">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="~/img/blog/@lfb.Image" alt="blog"></a>
+                        <a asp-controller="BlogDetails" asp-action="Index"><img src="~/img/blog/@lfb.Image" alt="blog"></a>
                         <div class="blog-hover">
-                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
+                            <a asp-controller="BlogDetails" asp-action="Index"><i class="fa fa-link"></i></a>
                         </div>
                     </div>
                     <div class="blog-content">
@@ -209,8 +209,8 @@
                             <p>@lfb.Composer  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
                         </div>
                         <div class="blog-bottom">
-                            <h2><a href="blog-details.html">@lfb.Description </a></h2>
-                            <a href="blog-details.html">read more</a>
+                            <h2><a asp-controller="BlogDetails" asp-action="Index">@lfb.Description </a></h2>
+                            <a asp-controller="BlogDetails" asp-action="Index">read more</a>
                         </div>
                     </div>
                 </div>

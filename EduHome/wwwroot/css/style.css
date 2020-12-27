@@ -2151,6 +2151,7 @@ textarea {
     font-weight: 700;
     display: inline-block;
 }
+
 .reply-area form a.reply-btn:hover{
     background: #EC1C23;
     -webkit-transition: all 0.5s ease 0s;

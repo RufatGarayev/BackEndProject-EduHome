@@ -145,8 +145,6 @@ C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeA
 C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\EduHome.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\EduHome.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
@@ -160,3 +158,10 @@ C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\EventDetails\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\BlogDetails\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\TeacherDetails\Index.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\EduHome.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\EduHome.MvcApplicationPartsAssemblyInfo.cache
