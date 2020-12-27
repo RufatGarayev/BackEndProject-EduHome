@@ -34,5 +34,11 @@ namespace EduHome.DAL
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<WorkShop> WorkShops { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<Explaining> Explainings { get; set; }
+        public DbSet<TeacherBasicInfo> TeacherBasicInfos { get; set; }
+        public DbSet<TeacherContactInfo> TeacherContactInfos { get; set; }
+        public DbSet<TeacherSkill> TeacherSkills { get; set; }
     }
 }
