@@ -1,9 +1,9 @@
-﻿@model CoursesDetailsVM
+﻿@model EventDetailsVM
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Details";
 }
 
-<!--HeaderTop-->
+<!--HeaderTop Start-->
 <div class="header-top">
     <div class="container">
         <div class="row">
@@ -23,8 +23,7 @@
         </div>
     </div>
 </div>
-<!--HeaderTop-->
-
+<!--HeaderTop End-->
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -33,7 +32,7 @@
                 <div class="col-xs-12">
                     <div class="banner-content-wrapper">
                         <div class="banner-content">
-                            <h2>courses details</h2>
+                            <h2>event / details</h2>
                         </div>
                     </div>
                 </div>
@@ -42,42 +41,43 @@
     </div>
 </div>
 <!-- Banner Area End -->
-<!-- Blog Start -->
-<div class="courses-details-area blog-area pt-150 pb-140">
+<!-- Event Details Start -->
+<div class="event-details-area blog-area pt-150 pb-140">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="courses-details">
-                    <div class="courses-details-img">
-                        <img src="img/course/@Model.CoursesTexts.ElementAt(0).Image" alt="courses-details">
+                <div class="event-details">
+                    <div class="event-details-img">
+                        <img src="img/event/@Model.WorkShop.Image" alt="event-details">
+                        <div class="event-date">
+                            <h3>20 <span>jun</span></h3>
+                        </div>
                     </div>
-                    <div class="course-details-content">
-                        <h2>@Model.CoursesTexts.ElementAt(0).Title</h2>
-                        <p>@Model.CoursesTexts.ElementAt(0).Description</p>
-                        <div class="course-details-left">
-                            @foreach (CoursesText ct in Model.CoursesTexts)
+                    <div class="event-details-content">
+                        <h2>@Model.WorkShop.Title</h2>
+                        <ul>
+                            <li><span>time : </span>9:30am - 4:45pm</li>
+                            <li><span>venue : </span>@Model.WorkShop.Venue</li>
+                        </ul>
+                        @Html.Raw(Model.WorkShop.Description)
+
+                        <!-- Speakers Start -->
+                        <div class="speakers-area fix">
+                            <h4>speakers</h4>
+                            @foreach (Speaker sp in Model.Speakers)
                             {
-                                <div class="single-course-left">
-                                    <h3 class="pt-40">@ct.Title</h3>
-                                    @Html.Raw(ct.Description)
+                                <div class="single-speaker">
+                                    <div class="speaker-img">
+                                        <img src="img/event/@sp.Image" alt="speaker">
+                                    </div>
+                                    <div class="speaker-name">
+                                        <h5>@sp.Name</h5>
+                                        <p>@sp.Position</p>
+                                    </div>
                                 </div>
                             }
                         </div>
-                        <!-- CourseFeatures Start -->
-                        <div class="course-details-right">
-                            <h3>COURSE FEATURES</h3>
-                            <ul>
-                                <li>Starts <span>@Model.CourseFeature.Starts</span></li>
-                                <li>Duration <span>@Model.CourseFeature.Duration</span></li>
-                                <li>Class Duration <span>@Model.CourseFeature.ClassDuration</span></li>
-                                <li>Skill Level <span>@Model.CourseFeature.SkillLevel</span></li>
-                                <li>Language <span>@Model.CourseFeature.Language</span></li>
-                                <li>Students <span>@Model.CourseFeature.Students</span></li>
-                                <li>Assesments <span>@Model.CourseFeature.Assesments</span></li>
-                            </ul>
-                            <h3 class="red">course fee <span>$@Model.CourseFeature.CourseFee</span></h3>
-                        </div>
-                        <!-- CourseFeatures Start -->
+                        <!-- Speakers End -->
                     </div>
                     <!-- PeplyArea Start -->
                     <div class="reply-area">
@@ -87,20 +87,20 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p>Name</p>
-                                    <input asp-for="LeaveMessage.Name" type="text" name="name" id="name">
+                                    <input type="text" name="name" id="name">
                                 </div>
                                 <div class="col-md-12">
                                     <p>Email</p>
-                                    <input asp-for="LeaveMessage.Email" type="text" name="email" id="email">
+                                    <input type="text" name="email" id="email">
                                 </div>
                                 <div class="col-md-12">
                                     <p>Subject</p>
-                                    <input asp-for="LeaveMessage.Subject" type="text" name="subject" id="subject">
+                                    <input type="text" name="subject" id="subject">
                                     <p>Massage</p>
-                                    <textarea asp-for="LeaveMessage.Message" name="message" id="message" cols="15" rows="10"></textarea>
+                                    <textarea name="message" id="message" cols="15" rows="10"></textarea>
                                 </div>
                             </div>
-                            <a class="reply-btn" data-text="send"><span>send message</span></a>
+                            <a class="reply-btn" href="#" data-text="send"><span>send message</span></a>
                             <p class="form-messege"></p>
                         </form>
                     </div>
@@ -120,6 +120,7 @@
                             </form>
                         </div>
                     </div>
+
                     <div class="single-blog-widget mb-50">
                         <h3>categories</h3>
                         <ul>
@@ -169,4 +170,4 @@
         </div>
     </div>
 </div>
-<!-- Blog End -->
+<!-- Event Details End -->

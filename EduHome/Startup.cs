@@ -28,24 +28,24 @@ namespace EduHome
         {
             services.AddControllersWithViews();
 
-            //=====Identity Start=====//
-            services.AddIdentity<AppUser, IdentityRole>(identityOptions =>
-            {
-                identityOptions.Password.RequiredLength = 8;
-                identityOptions.Password.RequireNonAlphanumeric = true; 
-                identityOptions.Password.RequireDigit = true;
-                identityOptions.Password.RequireLowercase = true;
-                identityOptions.Password.RequireUppercase = true;
+            //    //=====Identity Start=====//
+            //    services.AddIdentity<AppUser, IdentityRole>(identityOptions =>
+            //    {
+            //        identityOptions.Password.RequiredLength = 8;
+            //        identityOptions.Password.RequireNonAlphanumeric = true; 
+            //        identityOptions.Password.RequireDigit = true;
+            //        identityOptions.Password.RequireLowercase = true;
+            //        identityOptions.Password.RequireUppercase = true;
 
-                identityOptions.User.RequireUniqueEmail = true;
+            //        identityOptions.User.RequireUniqueEmail = true;
 
-                identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10); 
+            //        identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10); 
 
-                identityOptions.Lockout.MaxFailedAccessAttempts = 3;
+            //        identityOptions.Lockout.MaxFailedAccessAttempts = 3;
 
-                identityOptions.Lockout.AllowedForNewUsers = true; 
+            //        identityOptions.Lockout.AllowedForNewUsers = true; 
 
-            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
+            //    }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
             //=====Identity End=====//
 
 

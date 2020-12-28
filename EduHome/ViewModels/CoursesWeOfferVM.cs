@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EduHome.ViewModels
 {
-    public class CoursesVM
+    public class CoursesWeOfferVM
     {
         public List<CoursesWeOffer> CoursesWeOffers { get; set; }
     }

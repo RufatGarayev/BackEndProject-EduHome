@@ -5,6 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201228175715_SomeTablesUpdated.cs" />
+    <Compile Remove="Migrations\20201228175715_SomeTablesUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20201228180104_SomeTablesHaveBeenUpdated.cs" />
+    <Compile Remove="Migrations\20201228180104_SomeTablesHaveBeenUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20201228181058_CoursesTableUpdated.cs" />
+    <Compile Remove="Migrations\20201228181058_CoursesTableUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20201228181332_CourseTableUpdated.cs" />
+    <Compile Remove="Migrations\20201228181332_CourseTableUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20201228183628_CoursesTableUpdated.cs" />
+    <Compile Remove="Migrations\20201228183628_CoursesTableUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20201228184649_CourseTableUpdated.cs" />
+    <Compile Remove="Migrations\20201228184649_CourseTableUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20201228191040_SomeTablesUpdated.cs" />
+    <Compile Remove="Migrations\20201228191040_SomeTablesUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20201228202715_SomeChangesAdded.cs" />
+    <Compile Remove="Migrations\20201228202715_SomeChangesAdded.Designer.cs" />
+    <Compile Remove="Migrations\20201228205239_RelationsAdded.cs" />
+    <Compile Remove="Migrations\20201228205239_RelationsAdded.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />

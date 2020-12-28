@@ -14,5 +14,7 @@ namespace EduHome.Models
         public string Video { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
+        //public int CoursesId { get; set; }
+        //public Courses Courses { get; set; }
     }
 }

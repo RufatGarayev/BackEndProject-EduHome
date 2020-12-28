@@ -17,11 +17,22 @@ namespace EduHome.Controllers
         }
         public IActionResult Index()
         {
-            OurTeacherVM ourTeacherVM = new OurTeacherVM
+            OurTeacherVM OurTeacherVM = new OurTeacherVM
             {
                 OurTeachers = _context.OurTeachers.Where(t => t.IsDeleted == false).Take(12).ToList()
             };
-            return View(ourTeacherVM);
+            return View(OurTeacherVM);
+        }
+
+        public IActionResult Details()
+        {
+            TeacherDetailsVM teacherDetailsVM = new TeacherDetailsVM
+            {
+                TeacherBasicInfo = _context.TeacherBasicInfos.Where(tbi => tbi.IsDeleted == false).FirstOrDefault(),
+                TeacherContactInfo = _context.TeacherContactInfos.Where(tci => tci.IsDeleted == false).FirstOrDefault(),
+                TeacherSkills = _context.TeacherSkills.Where(ts => ts.IsDeleted == false).ToList()
+            };
+            return View(teacherDetailsVM);
         }
     }
 }

@@ -18,11 +18,27 @@ namespace EduHome.Controllers
 
         public IActionResult Index()
         {
-            CoursesVM coursesVM = new CoursesVM
+            CoursesWeOfferVM coursesVM = new CoursesWeOfferVM
             {
                 CoursesWeOffers = _context.CoursesWeOffers.Where(cwo => cwo.IsDeleted == false).Take(9).ToList()
             };
             return View(coursesVM);
+        }
+
+        public IActionResult Details(int? id)
+        {
+            CoursesDetailsVM coursesDetailsVM = new CoursesDetailsVM
+            {
+                //CoursesTexts = _context.CoursesTexts.Where(ct => ct.IsDeleted == false).ToList(),                 //where
+
+                CourseFeature = _context.CourseFeatures.Where(cf => cf.IsDeleted == false).FirstOrDefault(),      //fod
+                BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
+                Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
+                Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
+                Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
+                LeaveMessage = _context.LeaveMessages.FirstOrDefault()
+            };
+            return View(coursesDetailsVM);
         }
     }
 }

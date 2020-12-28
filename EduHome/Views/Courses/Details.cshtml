@@ -1,9 +1,9 @@
-﻿@model BlogDetailsVM
+﻿@model CoursesDetailsVM
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Details";
 }
 
-<!--HeaderTop Start-->
+<!--HeaderTop-->
 <div class="header-top">
     <div class="container">
         <div class="row">
@@ -23,8 +23,7 @@
         </div>
     </div>
 </div>
-<!--HeaderTop End-->
-
+<!--HeaderTop-->
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -33,7 +32,7 @@
                 <div class="col-xs-12">
                     <div class="banner-content-wrapper">
                         <div class="banner-content">
-                            <h2>blog details</h2>
+                            <h2>courses details</h2>
                         </div>
                     </div>
                 </div>
@@ -43,19 +42,43 @@
 </div>
 <!-- Banner Area End -->
 <!-- Blog Start -->
-<div class="blog-details-area pt-150 pb-140">
+<div class="courses-details-area blog-area pt-150 pb-140">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="blog-details">
-                    <div class="blog-details-img">
-                        <img src="img/blog/@Model.Explaining.Image" alt="blog-details">
+                <div class="courses-details">
+                    <div class="courses-details-img">
+                        @*<img src="img/course/@Model.CoursesTexts.ElementAt(0).Image" alt="courses-details">*@
                     </div>
-                    <div class="blog-details-content">
-                        <h2>@Model.Explaining.Title </h2>
-                        <h6>@Model.Explaining.Composer  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</h6>
-                        @Html.Raw(Model.Explaining.Description)
+                    <div class="course-details-content">
+                        @*<h2>@Model.CoursesTexts.ElementAt(0).Title</h2>*@
+                        @*<p>@Model.CoursesTexts.ElementAt(0).Description</p>*@
+                        <div class="course-details-left">
+                            @*@foreach (CoursesText ct in Model.CoursesTexts)
+                            {
+                                <div class="single-course-left">
+                                    <h3 class="pt-40">@ct.Title</h3>
+                                    @Html.Raw(ct.Description)
+                                </div>
+                            }*@
+                        </div>
+                        <!-- CourseFeatures Start -->
+                        <div class="course-details-right">
+                            <h3>COURSE FEATURES</h3>
+                            <ul>
+                                <li>Starts <span>@Model.CourseFeature.Starts</span></li>
+                                <li>Duration <span>@Model.CourseFeature.Duration</span></li>
+                                <li>Class Duration <span>@Model.CourseFeature.ClassDuration</span></li>
+                                <li>Skill Level <span>@Model.CourseFeature.SkillLevel</span></li>
+                                <li>Language <span>@Model.CourseFeature.Language</span></li>
+                                <li>Students <span>@Model.CourseFeature.Students</span></li>
+                                <li>Assesments <span>@Model.CourseFeature.Assesments</span></li>
+                            </ul>
+                            <h3 class="red">course fee <span>$@Model.CourseFeature.CourseFee</span></h3>
+                        </div>
+                        <!-- CourseFeatures Start -->
                     </div>
+                    <!-- PeplyArea Start -->
                     <div class="reply-area">
                         <h3>LEAVE A REPLY</h3>
                         <p>I must explain to you how all this a mistaken idea of ncing great explorer of the rut<br> the is lder of human happinescias unde omnis iste natus error sit volptatem </p>
@@ -63,28 +86,29 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p>Name</p>
-                                    <input type="text" name="name" id="name">
+                                    <input asp-for="LeaveMessage.Name" type="text" name="name" id="name">
                                 </div>
                                 <div class="col-md-12">
                                     <p>Email</p>
-                                    <input type="text" name="email" id="email">
+                                    <input asp-for="LeaveMessage.Email" type="text" name="email" id="email">
                                 </div>
                                 <div class="col-md-12">
                                     <p>Subject</p>
-                                    <input type="text" name="subject" id="subject">
+                                    <input asp-for="LeaveMessage.Subject" type="text" name="subject" id="subject">
                                     <p>Massage</p>
-                                    <textarea name="message" id="message" cols="15" rows="10"></textarea>
+                                    <textarea asp-for="LeaveMessage.Message" name="message" id="message" cols="15" rows="10"></textarea>
                                 </div>
                             </div>
-                            <a class="reply-btn" href="#" data-text="send"><span>send message</span></a>
+                            <a class="reply-btn" data-text="send"><span>send message</span></a>
                             <p class="form-messege"></p>
                         </form>
                     </div>
+                    <!-- PeplyArea End -->
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="blog-sidebar right">
-                    <div class="single-blog-widget mb-47">
+                    <div class="single-blog-widget mb-50">
                         <h3>search</h3>
                         <div class="blog-search">
                             <form id="search" action="#">
@@ -95,7 +119,6 @@
                             </form>
                         </div>
                     </div>
-
                     <div class="single-blog-widget mb-50">
                         <h3>categories</h3>
                         <ul>

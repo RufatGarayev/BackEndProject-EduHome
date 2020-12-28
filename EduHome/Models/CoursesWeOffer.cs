@@ -10,12 +10,13 @@ namespace EduHome.Models
     {
         public int Id { get; set; }
         [Required, StringLength(50)]
-        public string Title { get; set; }
+        public string Name { get; set; }
         [Required, StringLength(255)]
         public string Description { get; set; }
         [Required]
         public string Image { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
+        //public virtual CourseFeature CourseFeature { get; set; }
     }
 }

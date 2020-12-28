@@ -29,7 +29,7 @@ namespace EduHome.DAL
         public DbSet<OurTeacher> OurTeachers { get; set; }
         public DbSet<Map> Maps { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<CoursesText> CoursesTexts { get; set; }
+        //public DbSet<CoursesText> CoursesTexts { get; set; }
         public DbSet<CourseFeature> CourseFeatures { get; set; }
         public DbSet<BlogBanner> BlogBanners { get; set; }
         public DbSet<Post> Posts { get; set; }

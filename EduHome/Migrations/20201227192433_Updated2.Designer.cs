@@ -4,14 +4,16 @@ using EduHome.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EduHome.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201227192433_Updated2")]
+    partial class Updated2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -176,9 +178,6 @@ namespace EduHome.Migrations
                     b.Property<int>("CourseFee")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Duration")
                         .HasColumnType("nvarchar(max)");
 
@@ -200,12 +199,36 @@ namespace EduHome.Migrations
                     b.Property<DateTime?>("TimeDeleted")
                         .HasColumnType("datetime2");
 
+                    b.HasKey("Id");
+
+                    b.ToTable("CourseFeatures");
+                });
+
+            modelBuilder.Entity("EduHome.Models.CoursesText", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("TimeDeleted")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CourseFeatures");
+                    b.ToTable("CoursesTexts");
                 });
 
             modelBuilder.Entity("EduHome.Models.CoursesWeOffer", b =>
@@ -748,11 +771,17 @@ namespace EduHome.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CompletedPercent")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Percent")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("TimeDeleted")
                         .HasColumnType("datetime2");
