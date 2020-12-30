@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EduHome.Models
 {
-    public class CoursesWeOffer
+    public class CoursesWeOffer     //---COURSE---//
     {
         public int Id { get; set; }
         [Required, StringLength(50)]
@@ -17,6 +17,7 @@ namespace EduHome.Models
         public string Image { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
-        //public virtual CourseFeature CourseFeature { get; set; }
+        public CourseFeature CourseFeature { get; set; }
+        public Address Address { get; set; }
     }
 }

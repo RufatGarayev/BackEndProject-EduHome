@@ -14,10 +14,11 @@ namespace EduHome.Models
         [Required]
         public string Image { get; set; }
         public DateTime? Day { get; set; }
-        public DateTime? StartTime { get; set; }
-        public DateTime? EndTime { get; set; }
+        public DateTime? TimeSpan { get; set; }
+        [Required]
         public string Venue { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
+        public WorkShop WorkShop { get; set; }
     }
 }

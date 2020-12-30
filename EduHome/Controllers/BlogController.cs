@@ -26,21 +26,22 @@ namespace EduHome.Controllers
         }
 
         //Pagination
-        //public IActionResult Index(int? page)
-        //{
-        //    ViewBag.PageCount = Decimal.Ceiling((decimal)_context.BlogBanners.Where(bb => bb.IsDeleted == false).Count() / 2);
-        //    ViewBag.Page = page;
-        //    if (page == null)
-        //    {
-        //        return View(_context.BlogBanners.Where(bb => bb.IsDeleted == false).Take(2).ToList());
-        //    }
-        //    return View(_context.BlogBanners.Where(bb => bb.IsDeleted == false).Skip(((int)page - 1) * 2).Take(2).ToList());
-        //}
+        public IActionResult Pagination(int? page)
+        {
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.LatestFromBlogs.Where(bb => bb.IsDeleted == false).Count() / 4);
+            ViewBag.Page = page;
+            if (page == null)
+            {
+                return View(_context.LatestFromBlogs.Where(bb => bb.IsDeleted == false).Take(4).ToList());
+            }
+            return View(_context.LatestFromBlogs.Where(bb => bb.IsDeleted == false).Skip(((int)page - 1) * 4).Take(4).ToList());
+        }
 
         public IActionResult Details()
         {
             BlogDetailsVM blogDetailsVM = new BlogDetailsVM
             {
+                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false).ToList(),
                 BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
                 Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),

@@ -17,5 +17,7 @@ namespace EduHome.Models
         public string Twitter { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
+        public int OurTeacherId { get; set; }
+        public OurTeacher OurTeacher { get; set; }
     }
 }

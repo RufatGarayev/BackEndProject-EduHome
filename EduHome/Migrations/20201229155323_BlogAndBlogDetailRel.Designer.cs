@@ -4,14 +4,16 @@ using EduHome.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EduHome.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201229155323_BlogAndBlogDetailRel")]
+    partial class BlogAndBlogDetailRel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +35,6 @@ namespace EduHome.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CoursesWeOfferId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -50,9 +49,6 @@ namespace EduHome.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CoursesWeOfferId")
-                        .IsUnique();
 
                     b.ToTable("Addresses");
                 });
@@ -821,13 +817,7 @@ namespace EduHome.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CompletedPercent")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("OurTeacherId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Percent")
                         .HasColumnType("int");
 
                     b.Property<int>("TeacherSkillId")
@@ -1125,15 +1115,6 @@ namespace EduHome.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("EduHome.Models.Address", b =>
-                {
-                    b.HasOne("EduHome.Models.CoursesWeOffer", "CoursesWeOffer")
-                        .WithOne("Address")
-                        .HasForeignKey("EduHome.Models.Address", "CoursesWeOfferId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("EduHome.Models.BlogDetail", b =>

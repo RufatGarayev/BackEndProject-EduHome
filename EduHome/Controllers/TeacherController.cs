@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EduHome.DAL;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.Controllers
 {
@@ -24,13 +25,16 @@ namespace EduHome.Controllers
             return View(OurTeacherVM);
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int? id)
         {
             TeacherDetailsVM teacherDetailsVM = new TeacherDetailsVM
             {
-                TeacherBasicInfo = _context.TeacherBasicInfos.Where(tbi => tbi.IsDeleted == false).FirstOrDefault(),
+                TeacherBasicInfo = _context.TeacherBasicInfos.Include(tbi => tbi.OurTeacher).Where(tbi => tbi.IsDeleted == false)
+                .FirstOrDefault(tbi => tbi.OurTeacherId == id),
+
                 TeacherContactInfo = _context.TeacherContactInfos.Where(tci => tci.IsDeleted == false).FirstOrDefault(),
-                TeacherSkills = _context.TeacherSkills.Where(ts => ts.IsDeleted == false).ToList()
+                TeacherSkills = _context.TeacherSkills.Where(ts => ts.IsDeleted == false).ToList(),
+                TeacherSkillSkills = _context.TeacherSkillSkills.Include(tbi => tbi.OurTeacher).ToList()
             };
             return View(teacherDetailsVM);
         }

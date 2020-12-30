@@ -11,5 +11,6 @@ namespace EduHome.ViewModels
         public TeacherBasicInfo TeacherBasicInfo { get; set; }
         public TeacherContactInfo TeacherContactInfo { get; set; }
         public List<TeacherSkill> TeacherSkills { get; set; }
+        public List<TeacherSkillSkill> TeacherSkillSkills { get; set; }
     }
 }

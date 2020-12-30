@@ -17,5 +17,7 @@ namespace EduHome.Models
         public string Country { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
+        public int CoursesWeOfferId { get; set; }
+        public CoursesWeOffer CoursesWeOffer { get; set; }
     }
 }

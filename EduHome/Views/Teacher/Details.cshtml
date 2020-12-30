@@ -84,7 +84,7 @@
                 <div class="skill-area">
                     <h4>skills</h4>
                 </div>
-                @*<div class="skill-wrapper">
+                <div class="skill-wrapper">
                         <div class="row">
                             @foreach (TeacherSkill skill in Model.TeacherSkills)
                             {
@@ -92,15 +92,18 @@
                                     <div class="skill-bar-item">
                                         <span>@skill.Name</span>
                                         <div class="progress">
-                                            <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="@skill.CompletedPercent; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                                <span class="text-top">@skill.Percent%</span>
-                                            </div>
+                                            @foreach (TeacherSkillSkill tsk in Model.TeacherSkillSkills)
+                                            {
+                                                <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="@tsk.CompletedPercent; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                                    <span class="text-top">@tsk.Percent%</span>
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>
                             }
                         </div>
-                    </div>*@
+                    </div>
             </div>
         </div>
     </div>

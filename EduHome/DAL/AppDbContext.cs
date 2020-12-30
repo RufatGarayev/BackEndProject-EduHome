@@ -42,5 +42,7 @@ namespace EduHome.DAL
         public DbSet<TeacherContactInfo> TeacherContactInfos { get; set; }
         public DbSet<TeacherSkill> TeacherSkills { get; set; }
         public DbSet<LeaveMessage> LeaveMessages { get; set; }
+        public DbSet<BlogDetail> BlogDetails { get; set; }
+        public DbSet<TeacherSkillSkill> TeacherSkillSkills { get; set; }
     }
 }

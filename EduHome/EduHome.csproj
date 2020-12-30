@@ -23,6 +23,18 @@
     <Compile Remove="Migrations\20201228202715_SomeChangesAdded.Designer.cs" />
     <Compile Remove="Migrations\20201228205239_RelationsAdded.cs" />
     <Compile Remove="Migrations\20201228205239_RelationsAdded.Designer.cs" />
+    <Compile Remove="Migrations\20201229004910_CreateCourseFeatureRelation.cs" />
+    <Compile Remove="Migrations\20201229004910_CreateCourseFeatureRelation.Designer.cs" />
+    <Compile Remove="Migrations\20201229054324_cwoAndcfRelation.cs" />
+    <Compile Remove="Migrations\20201229054324_cwoAndcfRelation.Designer.cs" />
+    <Compile Remove="Migrations\20201229060955_cwoAndcfRelation.cs" />
+    <Compile Remove="Migrations\20201229060955_cwoAndcfRelation.Designer.cs" />
+    <Compile Remove="Migrations\20201229061420_cwoAndcfRelation.cs" />
+    <Compile Remove="Migrations\20201229061420_cwoAndcfRelation.Designer.cs" />
+    <Compile Remove="Migrations\20201229073047_TeacherAndContactRel.cs" />
+    <Compile Remove="Migrations\20201229073047_TeacherAndContactRel.Designer.cs" />
+    <Compile Remove="Migrations\20201229075606_TeacherAndBasicInfoRel.cs" />
+    <Compile Remove="Migrations\20201229075606_TeacherAndBasicInfoRel.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

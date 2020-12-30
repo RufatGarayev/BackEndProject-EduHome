@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EduHome.DAL;
+using EduHome.Models;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.Controllers
 {
@@ -29,9 +31,11 @@ namespace EduHome.Controllers
         {
             CoursesDetailsVM coursesDetailsVM = new CoursesDetailsVM
             {
-                //CoursesTexts = _context.CoursesTexts.Where(ct => ct.IsDeleted == false).ToList(),                 //where
+                //CoursesTexts = _context.CoursesTexts.Where(ct => ct.IsDeleted == false).ToList(),                                         //where
 
-                CourseFeature = _context.CourseFeatures.Where(cf => cf.IsDeleted == false).FirstOrDefault(),      //fod
+                CourseFeature = _context.CourseFeatures.Include(cd => cd.CoursesWeOffer).FirstOrDefault(cd => cd.CoursesWeOfferId == id),    //fod
+                //if (detail == null) return NotFound();
+
                 BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
                 Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
@@ -39,6 +43,6 @@ namespace EduHome.Controllers
                 LeaveMessage = _context.LeaveMessages.FirstOrDefault()
             };
             return View(coursesDetailsVM);
-        }
+        }  
     }
 }

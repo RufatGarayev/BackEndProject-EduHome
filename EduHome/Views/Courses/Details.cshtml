@@ -47,20 +47,25 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="courses-details">
-                    <div class="courses-details-img">
-                        @*<img src="img/course/@Model.CoursesTexts.ElementAt(0).Image" alt="courses-details">*@
-                    </div>
+                    @*<div class="courses-details-img">
+                        <img src="img/course/@Model.CourseFeature.CoursesWeOffer.Image" alt="courses-details">
+                    </div>*@
                     <div class="course-details-content">
-                        @*<h2>@Model.CoursesTexts.ElementAt(0).Title</h2>*@
-                        @*<p>@Model.CoursesTexts.ElementAt(0).Description</p>*@
+                        <h2>@Model.CourseFeature.Title</h2>
+                        <p>@Model.CourseFeature.AboutCourse</p>
                         <div class="course-details-left">
-                            @*@foreach (CoursesText ct in Model.CoursesTexts)
-                            {
-                                <div class="single-course-left">
-                                    <h3 class="pt-40">@ct.Title</h3>
-                                    @Html.Raw(ct.Description)
-                                </div>
-                            }*@
+                            <div class="single-course-left">
+                                <h3 class="pt-40">@Model.CourseFeature.Title</h3>
+                                @Html.Raw(@Model.CourseFeature.Certification)
+                            </div>
+                            <div class="single-course-left">
+                                <h3 class="pt-40">@Model.CourseFeature.Title</h3>
+                                @Html.Raw(@Model.CourseFeature.HowToApply)
+                            </div>
+                            <div class="single-course-left">
+                                <h3 class="pt-40">@Model.CourseFeature.Title</h3>
+                                @Html.Raw(@Model.CourseFeature.HowToApply)
+                            </div>
                         </div>
                         <!-- CourseFeatures Start -->
                         <div class="course-details-right">
@@ -141,7 +146,7 @@
                             <div class="single-post mb-30">
                                 <div class="single-post-img">
                                     <a asp-controller="BlogDetails" action="Index">
-                                        <img src="img/post/@post.Image" alt="post">
+                                        <img src="~img/post/@post.Image" alt="post">
                                         <div class="blog-hover">
                                             <i class="fa fa-link"></i>
                                         </div>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EduHome.Models
 {
-    public class OurTeacher
+    public class OurTeacher     //---TEACHER---//
     {
         public int Id { get; set; }
         [Required]
@@ -20,5 +20,7 @@ namespace EduHome.Models
         public string Twitter { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
+        public TeacherContactInfo TeacherContactInfo { get; set; }
+        public TeacherBasicInfo TeacherBasicInfo { get; set; }
     }
 }

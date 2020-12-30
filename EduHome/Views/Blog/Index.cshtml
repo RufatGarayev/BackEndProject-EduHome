@@ -51,7 +51,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="single-blog mb-60">
                         <div class="blog-img">
-                            <a href="blog-details.html"><img src="~/img/blog/@b.Image" alt="blog"></a>
+                            <a asp-controller="BlogDetails" asp-action="Details"><img src="~/img/blog/@b.Image" alt="blog"></a>
                             <div class="blog-hover">
                                 <i class="fa fa-link"></i>
                             </div>
@@ -61,7 +61,7 @@
                                 <p>@b.Composer  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
                             </div>
                             <div class="blog-bottom">
-                                <h2><a href="blog-details.html">@b.Description </a></h2>
+                                <h2><a href="blog-details.html">I MUST EXPLAIN TO YOU HOW ALL THIS A MISTAKEN IDEA</a></h2>
                                 <a href="blog-details.html">read more</a>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                 </div>
             }
         </div>
-        <div class="row justify-content-center">
+        <div class="row text-center">
             <!--Pagination Start-->
             <nav aria-label="...">
                 <ul class="pagination pagination-sm">
@@ -84,7 +84,7 @@
                         else
                         {
                             <li class="page-item">
-                                <a class="page-link" asp-controller="Blog" asp-action="Index" asp-route-page="@i">@i</a>
+                                <a class="page-link" asp-controller="Blog" asp-action="Pagination" asp-route-page="@i">@i</a>
                             </li>
                         }
                     }
