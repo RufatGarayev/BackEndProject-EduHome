@@ -8,6 +8,7 @@ namespace EduHome.ViewModels
 {
     public class BlogDetailsVM
     {
+        public List<LatestFromBlog> LatestFromBlogs { get; set; }
         public List<BlogDetail> BlogDetails { get; set; }
         public List<Category> Categories { get; set; }
         public BlogBanner BlogBanner { get; set; }

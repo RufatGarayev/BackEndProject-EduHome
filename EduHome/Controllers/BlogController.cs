@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EduHome.DAL;
+using EduHome.Models;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.Controllers
 {
@@ -16,37 +18,33 @@ namespace EduHome.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            BlogVM blogVM = new BlogVM
-            {
-                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(9).ToList()
-            };
-            return View(blogVM);
-        }
+            //---Pagination---//
 
-        //Pagination
-        public IActionResult Pagination(int? page)
-        {
-            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.LatestFromBlogs.Where(bb => bb.IsDeleted == false).Count() / 4);
-            ViewBag.Page = page;
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.LatestFromBlogs.Where(b => b.IsDeleted == false).Count() / 3);
+            ViewBag.page = page;
             if (page == null)
             {
-                return View(_context.LatestFromBlogs.Where(bb => bb.IsDeleted == false).Take(4).ToList());
+                List<LatestFromBlog> latestFromBlog = _context.LatestFromBlogs.Where(b => b.IsDeleted == false).Take(3).ToList();
+                return View(latestFromBlog);
             }
-            return View(_context.LatestFromBlogs.Where(bb => bb.IsDeleted == false).Skip(((int)page - 1) * 4).Take(4).ToList());
+            List<LatestFromBlog> LatestFromBlog = _context.LatestFromBlogs.Where(b => b.IsDeleted == false).Skip(((int)page-1) * 3).Take(3).ToList();
+            return View(LatestFromBlog);
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int? id)
         {
             BlogDetailsVM blogDetailsVM = new BlogDetailsVM
             {
-                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false).ToList(),
+                BlogDetails = _context.BlogDetails.Include(b => b.LatestFromBlog).Where(bd => bd.IsDeleted == false)
+                .ToList(),
                 BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
                 Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
-                Explaining = _context.Explainings.Where(exp => exp.IsDeleted == false).FirstOrDefault()
+                Explaining = _context.Explainings.Where(exp => exp.IsDeleted == false).FirstOrDefault(),
+                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(3).ToList()
             };
             return View(blogDetailsVM);
         }

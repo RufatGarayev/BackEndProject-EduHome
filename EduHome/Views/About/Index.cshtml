@@ -50,7 +50,7 @@
                 <div class="about-content">
                     @Html.Raw(Model.WelcomeToEduHome.Title)
                     @Html.Raw(Model.WelcomeToEduHome.Description)
-                    <a class="default-btn" href="#">view courses</a>
+                    <a asp-controller="Courses" asp-action="Index">view courses</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
@@ -68,7 +68,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="section-title text-center">
-                    <img src="img/icon/section.png" alt="title">
+                    <img src="~/img/icon/section.png" alt="title">
                     <h2>meet our teachers</h2>
                 </div>
             </div>
@@ -79,10 +79,10 @@
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <div class="single-teacher">
                         <div class="single-teacher-img">
-                            <a asp-controller="TeacherDetails" asp-action="Details"><img src="img/teacher/@t.Image" alt="teacher"></a>
+                            <a asp-controller="Teacher" asp-action="Details" asp-route-id="@t.Id"><img src="~/img/teacher/@t.Image" alt="teacher"></a>
                         </div>
                         <div class="single-teacher-content text-center">
-                            <h2><a asp-controller="TeacherDetails" asp-action="Details">@t.Name</a></h2>
+                            <h2><a asp-controller="Teacher" asp-action="Details" asp-route-id="@t.Id">@t.Name</a></h2>
                             <h4>@t.Position</h4>
                             <ul>
                                 <li><a href="@t.Facebook"><i class="zmdi zmdi-facebook"></i></a></li>

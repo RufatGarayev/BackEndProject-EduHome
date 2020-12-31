@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using EduHome.Models;
 using EduHome.DAL;
 using EduHome.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.Controllers
 {
@@ -35,12 +36,13 @@ namespace EduHome.Controllers
             return View(homeVM);
         }
 
+
+
         //public IActionResult Search(string search)
         //{
         //    IEnumerable<Student> model = _context.Students.Where(h => h.Name.Contains(search)).OrderByDescending(h => h.Id);
         //    return PartialView("_SearchPartial", model);
         //}
-
 
 
         public IActionResult Privacy()

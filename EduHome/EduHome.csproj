@@ -35,6 +35,8 @@
     <Compile Remove="Migrations\20201229073047_TeacherAndContactRel.Designer.cs" />
     <Compile Remove="Migrations\20201229075606_TeacherAndBasicInfoRel.cs" />
     <Compile Remove="Migrations\20201229075606_TeacherAndBasicInfoRel.Designer.cs" />
+    <Compile Remove="Migrations\20201230191904_DataTypeUpdated.cs" />
+    <Compile Remove="Migrations\20201230191904_DataTypeUpdated.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

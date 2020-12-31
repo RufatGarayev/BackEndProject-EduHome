@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <div class="teacher-details-img">
-                    <img src="img/teacher/@Model.TeacherBasicInfo.Image" alt="teacher">
+                    <img src="~/img/teacher/@Model.TeacherBasicInfo.Image" alt="teacher">
                 </div>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
@@ -92,12 +92,9 @@
                                     <div class="skill-bar-item">
                                         <span>@skill.Name</span>
                                         <div class="progress">
-                                            @foreach (TeacherSkillSkill tsk in Model.TeacherSkillSkills)
-                                            {
-                                                <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="@tsk.CompletedPercent; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                                    <span class="text-top">@tsk.Percent%</span>
-                                                </div>
-                                            }
+                                            <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="@skill.CompletedPercent; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                                <span class="text-top">@skill.Percent%</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

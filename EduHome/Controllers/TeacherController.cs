@@ -27,15 +27,18 @@ namespace EduHome.Controllers
 
         public IActionResult Details(int? id)
         {
+            if (id == null) return NotFound();
             TeacherDetailsVM teacherDetailsVM = new TeacherDetailsVM
             {
-                TeacherBasicInfo = _context.TeacherBasicInfos.Include(tbi => tbi.OurTeacher).Where(tbi => tbi.IsDeleted == false)
+                TeacherBasicInfo = _context.TeacherBasicInfos.Where(tbi => tbi.IsDeleted == false).Include(tbi => tbi.OurTeacher)
                 .FirstOrDefault(tbi => tbi.OurTeacherId == id),
+
 
                 TeacherContactInfo = _context.TeacherContactInfos.Where(tci => tci.IsDeleted == false).FirstOrDefault(),
                 TeacherSkills = _context.TeacherSkills.Where(ts => ts.IsDeleted == false).ToList(),
-                TeacherSkillSkills = _context.TeacherSkillSkills.Include(tbi => tbi.OurTeacher).ToList()
+                TeacherSkillSkills = _context.TeacherSkillSkills.ToList()
             };
+            
             return View(teacherDetailsVM);
         }
     }

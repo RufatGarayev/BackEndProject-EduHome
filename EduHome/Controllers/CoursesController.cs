@@ -31,9 +31,9 @@ namespace EduHome.Controllers
         {
             CoursesDetailsVM coursesDetailsVM = new CoursesDetailsVM
             {
-                //CoursesTexts = _context.CoursesTexts.Where(ct => ct.IsDeleted == false).ToList(),                                         //where
+                //CoursesTexts = _context.CoursesTexts.Where(ct => ct.IsDeleted == false).ToList(),                                                                                     //where
 
-                CourseFeature = _context.CourseFeatures.Include(cd => cd.CoursesWeOffer).FirstOrDefault(cd => cd.CoursesWeOfferId == id),    //fod
+                CourseFeature = _context.CourseFeatures.Include(cd => cd.CoursesWeOffer).FirstOrDefault(cd => cd.CoursesWeOfferId == id),                                               //fod
                 //if (detail == null) return NotFound();
 
                 BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),

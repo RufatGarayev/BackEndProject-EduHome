@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EduHome.Models
 {
-    public class Explaining
+    public class Explaining     //---Blog.Explaining---//
     {
         public int Id { get; set; }
         [Required]

@@ -51,7 +51,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="single-event mb-60">
                         <div class="event-img">
-                            <a asp-controller="EventDetails" asp-action="Index">
+                            <a asp-controller="Event" asp-action="Details">
                                 <img src="~/img/event/@e.Image" alt="event">
                                 <div class="course-hover">
                                     <i class="fa fa-link"></i>
@@ -62,13 +62,13 @@
                             </div>
                         </div>
                         <div class="event-content text-left">
-                            <h4><a asp-controller="EventDetails" asp-action="Index">@e.Title</a></h4>
+                            <h4><a asp-controller="Event" asp-action="Details">@e.Title</a></h4>
                             <ul>
                                 <li><span>time:</span> 9.00 AM - 4.45 PM</li>
                                 <li><span>venue</span> @e.Venue</li>
                             </ul>
                             <div class="event-content-right">
-                                <a asp-controller="EventDetails" asp-action="Index">join now</a>
+                                <a asp-controller="Event" asp-action="Details">join now</a>
                             </div>
                         </div>
                     </div>

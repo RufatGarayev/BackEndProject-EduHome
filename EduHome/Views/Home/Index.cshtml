@@ -73,7 +73,7 @@
                 <div class="choose-content text-left">
                     <h2>@Model.ChooseEduHome.Title</h2>
                     @Html.Raw(Model.ChooseEduHome.Description)
-                    <a class="default-btn" asp-controller="CoursesDetails" asp-action="Index">view courses</a>
+                    <a class="default-btn" asp-controller="Courses" asp-action="Details">view courses</a>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
                <div class="col-md-4 col-sm-6 col-xs-12">
                  <div class="single-course">
                     <div class="course-img">
-                        <a href="course-details.html">
+                        <a asp-controller="Courses" asp-action="Details">
                             <img src="~/img/course/@cwo.Image" alt="course">
                             <div class="course-hover">
                                 <i class="fa fa-link"></i>
@@ -105,9 +105,9 @@
                         </a>
                     </div>
                     <div class="course-content">
-                        <h3><a href="course-details.html">@cwo.Name</a></h3>
+                        <h3><a asp-controller="Courses" asp-action="Details">@cwo.Name</a></h3>
                         <p>@cwo.Description</p>
-                        <a class="default-btn" asp-controller="CoursesDetails" asp-action="Index">read more</a>
+                        <a class="default-btn" asp-controller="Courses" asp-action="Details">read more</a>
                     </div>
                   </div>
                 </div>
@@ -133,18 +133,18 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="single-event mb-35">
                         <div class="event-date">
-                            <h3><a asp-controller="EventDetails" asp-action="Index">20 <span>June</span></a></h3>
+                            <h3><a asp-controller="Event" asp-action="Details">20 <span>June</span></a></h3>
                         </div>
                         <div class="event-content text-left">
                             <div class="event-content-left">
-                                <h4><a asp-controller="EventDetails" asp-action="Index">@ue.Title</a></h4>
+                                <h4><a asp-controller="Event" asp-action="Details">@ue.Title</a></h4>
                                 <ul>
                                     <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
                                     <li><i class="fa fa-map-marker"></i>@ue.Location</li>
                                 </ul>
                             </div>
                             <div class="event-content-right">
-                                <a class="default-btn" asp-controller="EventDetails" asp-action="Index">join now</a>
+                                <a class="default-btn" asp-controller="Event" asp-action="Details">join now</a>
                             </div>
                         </div>
                     </div>
@@ -199,18 +199,18 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="single-blog">
                     <div class="blog-img">
-                        @*<a asp-controller="BlogDetails" asp-action="Index"><img src="~/img/blog/@lfb.Image" alt="blog"></a>*@
+                        <a asp-controller="Blog" asp-action="Details"><img src="~/img/blog/@lfb.Image" alt="blog"></a>
                         <div class="blog-hover">
-                            <a asp-controller="BlogDetails" asp-action="Index"><i class="fa fa-link"></i></a>
+                            <a asp-controller="Blog" asp-action="Details"><i class="fa fa-link"></i></a>
                         </div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-top">
-                            @*<p>@lfb.Composer  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>*@
+                            <p>@lfb.Composer  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
                         </div>
                         <div class="blog-bottom">
-                            @*<h2><a asp-controller="BlogDetails" asp-action="Index">@lfb.Description </a></h2>*@
-                            <a asp-controller="BlogDetails" asp-action="Index">read more</a>
+                            <h2><a asp-controller="Blog" asp-action="Details">I MUST EXPLAIN TO YOU HOW ALL THIS A MISTAKEN IDEA</a></h2>
+                            <a asp-controller="Blog" asp-action="Details">read more</a>
                         </div>
                     </div>
                 </div>

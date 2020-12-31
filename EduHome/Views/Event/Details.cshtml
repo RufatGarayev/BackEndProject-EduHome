@@ -132,7 +132,7 @@
                     </div>
                     <div class="single-blog-widget mb-50">
                         <div class="single-blog-banner">
-                            <a asp-controller="BlogDetails" asp-action="Index" id="blog"><img src="img/blog/@Model.BlogBanner.Image" alt="blog"></a>
+                            <a asp-controller="Blog" asp-action="Details" id="blog"><img src="~/img/blog/@Model.BlogBanner.Image" alt="blog"></a>
                             @Html.Raw(Model.BlogBanner.Title)
                         </div>
                     </div>
@@ -142,15 +142,15 @@
                         {
                             <div class="single-post mb-30">
                                 <div class="single-post-img">
-                                    <a asp-controller="BlogDetails" action="Index">
-                                        <img src="img/post/@post.Image" alt="post">
+                                    <a asp-controller="Blog" action="Details">
+                                        <img src="~/img/post/@post.Image" alt="post">
                                         <div class="blog-hover">
                                             <i class="fa fa-link"></i>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="single-post-content">
-                                    <h4><a asp-controller="BlogDetails" action="Index">@post.Description</a></h4>
+                                    <h4><a asp-controller="Blog" action="Details">@post.Description</a></h4>
                                     <p>@post.Composer  /  June 20, 2017</p>
                                 </div>
                             </div>
@@ -161,7 +161,7 @@
                         <div class="single-tag">
                             @foreach (Tag tag in Model.Tags)
                             {
-                                <a asp-controller="BlogDetails" asp-action="Index" class="mr-10 mb-10">@tag.Name</a>
+                                <a asp-controller="Blog" asp-action="Details" class="mr-10 mb-10">@tag.Name</a>
                             }
                         </div>
                     </div>
