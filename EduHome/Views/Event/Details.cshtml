@@ -48,18 +48,18 @@
             <div class="col-md-8">
                 <div class="event-details">
                     <div class="event-details-img">
-                        @*<img src="img/event/@Model.WorkShop.Image" alt="event-details">*@
+                        <img src="~/img/event/@Model.WorkShop.Event.Image" alt="event-details">
                         <div class="event-date">
                             <h3>20 <span>jun</span></h3>
                         </div>
                     </div>
                     <div class="event-details-content">
-                        @*<h2>@Model.WorkShop.Title</h2>*@
+                        <h2>@Model.WorkShop.Event.Title</h2>
                         <ul>
                             <li><span>time : </span>9:30am - 4:45pm</li>
-                            @*<li><span>venue : </span>@Model.WorkShop.Venue</li>*@
+                            <li><span>venue : </span>@Model.WorkShop.Event.Venue</li>
                         </ul>
-                        @*@Html.Raw(Model.WorkShop.Description)*@
+                        @Html.Raw(Model.WorkShop.Description)
 
                         <!--Speakers Start-->
                         <div class="speakers-area fix">
@@ -68,7 +68,7 @@
                             {
                                 <div class="single-speaker">
                                     <div class="speaker-img">
-                                        <img src="img/event/@sp.Image" alt="speaker">
+                                        <img src="~/img/event/@sp.Image" alt="speaker">
                                     </div>
                                     <div class="speaker-name">
                                         <h5>@sp.Name</h5>

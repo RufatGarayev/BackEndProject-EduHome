@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EduHome.DAL;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.Controllers
 {
@@ -24,16 +25,20 @@ namespace EduHome.Controllers
             return View(eventVM);
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int? id)
         {
             EventDetailsVM eventDetailsVM = new EventDetailsVM
             {
-                WorkShop = _context.WorkShops.Where(ws => ws.IsDeleted == false).FirstOrDefault(),
+                WorkShop = _context.WorkShops.Where(ws => ws.IsDeleted == false).Include(e => e.Event)
+                .FirstOrDefault(e => e.EventId == id),
                 Speakers = _context.Speakers.Where(s => s.IsDeleted == false).ToList(),
                 BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
                 Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
-                Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList()
+                Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
+
+                LatestFromBlog = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(3)
+                .ToList()
             };
             return View(eventDetailsVM);
         }

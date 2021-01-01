@@ -117,14 +117,14 @@
                             <div class="single-post mb-30">
                                 <div class="single-post-img">
                                     <a asp-controller="Blog" action="Details">
-                                        <img src="~/img/blog/@post.Image" style="width:95px !important; height:95px !important" alt="post">
+                                        <img src="~/img/blog/@post.Image" style="width:90px !important; height:80px !important" alt="post">
                                         <div class="blog-hover">
                                             <i class="fa fa-link"></i>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="single-post-content">
-                                    <h4><a asp-controller="Blog" action="Details"></a></h4>
+                                    <h4><a asp-controller="Blog" action="Details">@post</a></h4>
                                     <p>@post.Composer  /  June 20, 2017</p>
                                 </div>
                             </div>

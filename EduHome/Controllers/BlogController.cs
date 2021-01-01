@@ -37,8 +37,7 @@ namespace EduHome.Controllers
         {
             BlogDetailsVM blogDetailsVM = new BlogDetailsVM
             {
-                BlogDetails = _context.BlogDetails.Include(b => b.LatestFromBlog).Where(bd => bd.IsDeleted == false)
-                .ToList(),
+                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false).ToList(),
                 BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
                 Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),

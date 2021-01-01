@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EduHome.Models
 {
-    public class UpcomingEvent
+    public class UpcomingEvent      //---UnnecessaryModel---//
     {
         public int Id { get; set; }
         [Required, StringLength(70)]

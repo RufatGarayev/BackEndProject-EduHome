@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EduHome.Models
 {
-    public class WorkShop
+    public class WorkShop     //---EventDetail---//
     {
         public int Id { get; set; }
         public string Description { get; set; }

@@ -32,9 +32,8 @@ namespace EduHome.Controllers
             {
                 TeacherBasicInfo = _context.TeacherBasicInfos.Where(tbi => tbi.IsDeleted == false).Include(tbi => tbi.OurTeacher)
                 .FirstOrDefault(tbi => tbi.OurTeacherId == id),
-
-
-                TeacherContactInfo = _context.TeacherContactInfos.Where(tci => tci.IsDeleted == false).FirstOrDefault(),
+                TeacherContactInfo = _context.TeacherContactInfos.Where(tci => tci.IsDeleted == false).Include(tbi => tbi.OurTeacher)
+                .FirstOrDefault(tbi => tbi.OurTeacherId == id),
                 TeacherSkills = _context.TeacherSkills.Where(ts => ts.IsDeleted == false).ToList(),
                 TeacherSkillSkills = _context.TeacherSkillSkills.ToList()
             };
