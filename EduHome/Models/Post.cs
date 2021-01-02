@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,5 +17,11 @@ namespace EduHome.Models
         public DateTime? Date { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
+        [ForeignKey("WorkShop")]
+        public int WorkSopId { get; set; }
+        public WorkShop WorkShop { get; set; }
+        [ForeignKey("Explaining")]
+        public int ExplainingId { get; set; }
+        public Explaining Explaining { get; set; }
     }
 }

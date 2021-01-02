@@ -30,14 +30,12 @@ namespace EduHome.Controllers
         public IActionResult Details(int? id)
         {
             CoursesDetailsVM coursesDetailsVM = new CoursesDetailsVM
-            {
-                //CoursesTexts = _context.CoursesTexts.Where(ct => ct.IsDeleted == false).ToList(),                                                                                     //where
+            {   
+                CourseFeatures = _context.CourseFeatures.Where(cf => cf.IsDeleted == false).ToList(),                                               //fod
 
-                CourseFeature = _context.CourseFeatures.Include(cd => cd.CoursesWeOffer).FirstOrDefault(cd => cd.CoursesWeOfferId == id),                                               //fod
-                //if (detail == null) return NotFound();
+                BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
 
-                BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
-                Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
+                Posts = _context.Posts.Where(p => p.IsDeleted == false).Take(3).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
                 LeaveMessage = _context.LeaveMessages.FirstOrDefault()

@@ -4,14 +4,16 @@ using EduHome.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EduHome.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210101103423_PostEventAndSoOnUpdated")]
+    partial class PostEventAndSoOnUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,9 +127,6 @@ namespace EduHome.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BlogBannerId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -141,9 +140,6 @@ namespace EduHome.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BlogBannerId")
-                        .IsUnique();
 
                     b.HasIndex("LatestFromBlogId")
                         .IsUnique();
@@ -949,28 +945,6 @@ namespace EduHome.Migrations
                     b.ToTable("WorkShops");
                 });
 
-            modelBuilder.Entity("EduHome.Models.WorkShopSpeaker", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("SpeakerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WorkShopId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SpeakerId");
-
-                    b.HasIndex("WorkShopId");
-
-                    b.ToTable("WorkShopSpeakers");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -1178,12 +1152,6 @@ namespace EduHome.Migrations
 
             modelBuilder.Entity("EduHome.Models.BlogDetail", b =>
                 {
-                    b.HasOne("EduHome.Models.BlogBanner", "BlogBanner")
-                        .WithOne("BlogDetail")
-                        .HasForeignKey("EduHome.Models.BlogDetail", "BlogBannerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("EduHome.Models.LatestFromBlog", "LatestFromBlog")
                         .WithOne("BlogDetail")
                         .HasForeignKey("EduHome.Models.BlogDetail", "LatestFromBlogId")
@@ -1253,21 +1221,6 @@ namespace EduHome.Migrations
                     b.HasOne("EduHome.Models.Event", "Event")
                         .WithOne("WorkShop")
                         .HasForeignKey("EduHome.Models.WorkShop", "EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("EduHome.Models.WorkShopSpeaker", b =>
-                {
-                    b.HasOne("EduHome.Models.Speaker", "Speaker")
-                        .WithMany()
-                        .HasForeignKey("SpeakerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EduHome.Models.WorkShop", "WorkShop")
-                        .WithMany()
-                        .HasForeignKey("WorkShopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

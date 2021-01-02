@@ -15,8 +15,8 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="header-top-right text-right">
                     <ul>
-                        <li><a href="login.html">login</a></li>
-                        <li><a href="signup.html">signup</a></li>
+                        <li><a asp-controller="Account" asp-action="Login">login</a></li>
+                        <li><a asp-controller="Account" asp-action="Register">signup</a></li>
                     </ul>
                 </div>
             </div>
@@ -48,38 +48,33 @@
             <div class="col-md-8">
                 <div class="courses-details">
                     <div class="courses-details-img">
-                        <img src="~/img/course/@Model.CourseFeature.CoursesWeOffer.Image" alt="courses-details">
+                        <img src="~/img/course/@Model.CourseFeatures.ElementAt(0)" alt="courses-details">
                     </div>
                     <div class="course-details-content">
-                        <h2>@Model.CourseFeature.Title</h2>
-                        <p>@Model.CourseFeature.AboutCourse</p>
-                        <div class="course-details-left">
-                            <div class="single-course-left">
-                                <h3 class="pt-40">@Model.CourseFeature.Title</h3>
-                                @Html.Raw(@Model.CourseFeature.Certification)
+                        <h2>@Model.CourseFeatures.ElementAt(0).Title</h2>
+                        <p>@Model.CourseFeatures.ElementAt(0).AboutCourse</p>
+                        @foreach (CourseFeature cf in Model.CourseFeatures.Take(3))
+                        {
+                            <div class="course-details-left">
+                                <div class="single-course-left">
+                                    <h3 class="pt-40">@cf.Title</h3>
+                                    @Html.Raw(cf.Certification)
+                                </div>
                             </div>
-                            <div class="single-course-left">
-                                <h3 class="pt-40">@Model.CourseFeature.Title</h3>
-                                @Html.Raw(@Model.CourseFeature.HowToApply)
-                            </div>
-                            <div class="single-course-left">
-                                <h3 class="pt-40">@Model.CourseFeature.Title</h3>
-                                @Html.Raw(@Model.CourseFeature.HowToApply)
-                            </div>
-                        </div>
+                        }
                         <!-- CourseFeatures Start -->
                         <div class="course-details-right">
                             <h3>COURSE FEATURES</h3>
                             <ul>
-                                <li>Starts <span>@Model.CourseFeature.Starts</span></li>
-                                <li>Duration <span>@Model.CourseFeature.Duration</span></li>
-                                <li>Class Duration <span>@Model.CourseFeature.ClassDuration</span></li>
-                                <li>Skill Level <span>@Model.CourseFeature.SkillLevel</span></li>
-                                <li>Language <span>@Model.CourseFeature.Language</span></li>
-                                <li>Students <span>@Model.CourseFeature.Students</span></li>
-                                <li>Assesments <span>@Model.CourseFeature.Assesments</span></li>
+                                <li>Starts <span>@Model.CourseFeatures.ElementAt(0).Starts</span></li>
+                                <li>Duration <span>@Model.CourseFeatures.ElementAt(0).Duration</span></li>
+                                <li>Class Duration <span>@Model.CourseFeatures.ElementAt(0).ClassDuration</span></li>
+                                <li>Skill Level <span>@Model.CourseFeatures.ElementAt(0).SkillLevel</span></li>
+                                <li>Language <span>@Model.CourseFeatures.ElementAt(0).Language</span></li>
+                                <li>Students <span>@Model.CourseFeatures.ElementAt(0).Students</span></li>
+                                <li>Assesments <span>@Model.CourseFeatures.ElementAt(0).Assesments</span></li>
                             </ul>
-                            <h3 class="red">course fee <span>$@Model.CourseFeature.CourseFee</span></h3>
+                            <h3 class="red">course fee <span>$@Model.CourseFeatures.ElementAt(0).CourseFee</span></h3>
                         </div>
                         <!-- CourseFeatures Start -->
                     </div>
@@ -135,8 +130,8 @@
                     </div>
                     <div class="single-blog-widget mb-50">
                         <div class="single-blog-banner">
-                            <a asp-controller="Blog" asp-action="Details" id="blog"><img src="~/img/blog/@Model.BlogBanner.Image" alt="blog"></a>
-                            @Html.Raw(Model.BlogBanner.Title)
+                            <a asp-controller="Blog" asp-action="Details" id="blog"><img src="~/img/blog/@Model.BlogBanners.ElementAt(0).Image" alt="blog"></a>
+                            @Html.Raw(Model.BlogBanners.ElementAt(0).Title)
                         </div>
                     </div>
                     <div class="single-blog-widget mb-50">

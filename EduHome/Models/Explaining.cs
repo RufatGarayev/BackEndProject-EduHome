@@ -17,5 +17,6 @@ namespace EduHome.Models
         public string Description { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
+        public Post Post { get; set; }
     }
 }

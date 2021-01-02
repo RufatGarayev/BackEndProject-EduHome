@@ -29,7 +29,9 @@ namespace EduHome.Controllers
                 SectionDescriptions = _context.SectionDescriptions.Where(sd => sd.IsDeleted == false).ToList(),
                 ChooseEduHome = _context.ChooseEduHomes.Where(ceh => ceh.IsDeleted == false).FirstOrDefault(),
                 CoursesWeOffers = _context.CoursesWeOffers.Where(cwo => cwo.IsDeleted == false).Take(3).ToList(),
+
                 UpcomingEvents = _context.UpcomingEvents.Where(ue => ue.IsDeleted == false).ToList(),
+
                 Students = _context.Students.Where(stu => stu.IsDeleted == false).ToList(),
                 LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(3).ToList()
             };

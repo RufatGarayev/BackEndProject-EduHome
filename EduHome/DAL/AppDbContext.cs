@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EduHome.DAL
 {
-    public class AppDbContext:IdentityDbContext
+    public class AppDbContext:IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -44,5 +44,6 @@ namespace EduHome.DAL
         public DbSet<LeaveMessage> LeaveMessages { get; set; }
         public DbSet<BlogDetail> BlogDetails { get; set; }
         public DbSet<TeacherSkillSkill> TeacherSkillSkills { get; set; }
+        public DbSet<WorkShopSpeaker> WorkShopSpeakers { get; set; }
     }
 }

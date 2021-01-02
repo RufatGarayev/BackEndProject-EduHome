@@ -38,12 +38,15 @@ namespace EduHome.Controllers
             BlogDetailsVM blogDetailsVM = new BlogDetailsVM
             {
                 BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false).ToList(),
-                BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
-                Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
+
+                BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
+                Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),       //Tolist() ???
+
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
-                Explaining = _context.Explainings.Where(exp => exp.IsDeleted == false).FirstOrDefault(),
-                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(3).ToList()
+                Explainings = _context.Explainings.Where(exp => exp.IsDeleted == false).ToList(),
+                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false)
+                .Take(3).ToList()
             };
             return View(blogDetailsVM);
         }

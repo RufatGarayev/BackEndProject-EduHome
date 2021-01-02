@@ -16,5 +16,6 @@ namespace EduHome.Models
         [ForeignKey("Event")]
         public int EventId { get; set; }
         public Event Event { get; set; }
+        public Post Post { get; set; }
     }
 }

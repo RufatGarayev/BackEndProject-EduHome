@@ -29,16 +29,16 @@ namespace EduHome.Controllers
         {
             EventDetailsVM eventDetailsVM = new EventDetailsVM
             {
-                WorkShop = _context.WorkShops.Where(ws => ws.IsDeleted == false).Include(e => e.Event)
-                .FirstOrDefault(e => e.EventId == id),
-                Speakers = _context.Speakers.Where(s => s.IsDeleted == false).ToList(),
-                BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
-                Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
-                Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
-                Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
+                WorkShops = _context.WorkShops.Where(ws => ws.IsDeleted == false).ToList()
 
-                LatestFromBlog = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(3)
-                .ToList()
+
+                //Speakers = _context.Speakers.Where(s => s.IsDeleted == false).ToList(),
+                //BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
+                //Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),
+                //Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
+                //Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
+
+                //LatestFromBlog = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(3).ToList()
             };
             return View(eventDetailsVM);
         }

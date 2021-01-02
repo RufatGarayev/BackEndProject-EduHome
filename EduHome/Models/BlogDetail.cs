@@ -13,5 +13,7 @@ namespace EduHome.Models
         public DateTime? TimeDeleted { get; set; }
         public int LatestFromBlogId { get; set; }
         public LatestFromBlog LatestFromBlog { get; set; }
+        public int BlogBannerId { get; set; }
+        public BlogBanner BlogBanner { get; set; }
     }
 }

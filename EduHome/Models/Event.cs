@@ -13,8 +13,8 @@ namespace EduHome.Models
         public string Title { get; set; }
         [Required]
         public string Image { get; set; }
-        public DateTime? Day { get; set; }
-        public DateTime? TimeSpan { get; set; }
+        public string Day { get; set; }
+        public string TimeSpan { get; set; }
         [Required]
         public string Venue { get; set; }
         public bool IsDeleted { get; set; }
