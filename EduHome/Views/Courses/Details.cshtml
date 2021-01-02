@@ -24,6 +24,8 @@
     </div>
 </div>
 <!--HeaderTop-->
+@await Component.InvokeAsync("Header")
+
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -47,36 +49,50 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="courses-details">
-                    <div class="courses-details-img">
-                        <img src="~/img/course/@Model.CourseFeatures.ElementAt(0)" alt="courses-details">
-                    </div>
+                    @foreach (CoursesWeOffer c in Model.CoursesWeOffers)
+                    {
+                        <div class="courses-details-img">
+                            <img src="~/img/course/@c.Image" style="width:760px;" alt="courses-details">
+                        </div>
+                    }
+
                     <div class="course-details-content">
-                        <h2>@Model.CourseFeatures.ElementAt(0).Title</h2>
-                        <p>@Model.CourseFeatures.ElementAt(0).AboutCourse</p>
-                        @foreach (CourseFeature cf in Model.CourseFeatures.Take(3))
+                        @foreach (CourseFeature cf in Model.CourseFeatures.Take(1))
                         {
-                            <div class="course-details-left">
+                            <h2>@cf.Title</h2>
+                            <p>@cf.AboutCourse</p>
+                        }
+                        <div class="course-details-left">
+                            @foreach (CourseFeature cf in Model.CourseFeatures.Take(1))
+                            {
                                 <div class="single-course-left">
                                     <h3 class="pt-40">@cf.Title</h3>
-                                    @Html.Raw(cf.Certification)
+                                    <p>@cf.AboutCourse</p>
+                                    <h3 class="pt-40">@cf.Title</h3>
+                                    <p>@cf.Certification</p>
+                                    <h3 class="pt-40">@cf.Title</h3>
+                                    <p>@cf.HowToApply</p>
                                 </div>
-                            </div>
-                        }
-                        <!-- CourseFeatures Start -->
-                        <div class="course-details-right">
-                            <h3>COURSE FEATURES</h3>
-                            <ul>
-                                <li>Starts <span>@Model.CourseFeatures.ElementAt(0).Starts</span></li>
-                                <li>Duration <span>@Model.CourseFeatures.ElementAt(0).Duration</span></li>
-                                <li>Class Duration <span>@Model.CourseFeatures.ElementAt(0).ClassDuration</span></li>
-                                <li>Skill Level <span>@Model.CourseFeatures.ElementAt(0).SkillLevel</span></li>
-                                <li>Language <span>@Model.CourseFeatures.ElementAt(0).Language</span></li>
-                                <li>Students <span>@Model.CourseFeatures.ElementAt(0).Students</span></li>
-                                <li>Assesments <span>@Model.CourseFeatures.ElementAt(0).Assesments</span></li>
-                            </ul>
-                            <h3 class="red">course fee <span>$@Model.CourseFeatures.ElementAt(0).CourseFee</span></h3>
+                            }
                         </div>
-                        <!-- CourseFeatures Start -->
+                        @foreach (CourseFeature cf in Model.CourseFeatures.Take(1))
+                        {
+                            <!-- CourseFeatures Start -->
+                            <div class="course-details-right">
+                                <h3>COURSE FEATURES</h3>
+                                <ul>
+                                    <li>Starts <span>@cf.Starts</span></li>
+                                    <li>Duration <span>@cf.Duration</span></li>
+                                    <li>Class Duration <span>@cf.ClassDuration</span></li>
+                                    <li>Skill Level <span>@cf.SkillLevel</span></li>
+                                    <li>Language <span>@cf.Language</span></li>
+                                    <li>Students <span>@cf.Students</span></li>
+                                    <li>Assesments <span>@cf.Assesments</span></li>
+                                </ul>
+                                <h3 class="red">course fee <span>$@cf.CourseFee</span></h3>
+                            </div>
+                            <!-- CourseFeatures End -->
+                        }
                     </div>
                     <!-- PeplyArea Start -->
                     <div class="reply-area">
@@ -140,7 +156,7 @@
                         {
                             <div class="single-post mb-30">
                                 <div class="single-post-img">
-                                    <a asp-controller="Blog" action="Details">
+                                    <a asp-controller="Blog" asp-action="Details">
                                         <img src="~/img/post/@post.Image" alt="post">
                                         <div class="blog-hover">
                                             <i class="fa fa-link"></i>
@@ -148,7 +164,7 @@
                                     </a>
                                 </div>
                                 <div class="single-post-content">
-                                    <h4><a asp-controller="Blog" action="Details">@post.Description</a></h4>
+                                    <h4><a asp-controller="Blog" asp-action="Details">@post.Description</a></h4>
                                     <p>@post.Composer  /  June 20, 2017</p>
                                 </div>
                             </div>

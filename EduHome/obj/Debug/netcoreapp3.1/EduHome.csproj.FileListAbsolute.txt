@@ -145,7 +145,6 @@ C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeA
 C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ASUS\Desktop\EduHome\EduHome\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Index.cshtml.g.cs
@@ -167,3 +166,5 @@ C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Course
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\Details.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HomeHeader\Default.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs

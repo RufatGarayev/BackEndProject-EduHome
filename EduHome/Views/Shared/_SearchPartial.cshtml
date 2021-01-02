@@ -1,7 +1,7 @@
-﻿@*@model EduHome.Models.Student
+﻿@model IEnumerable<CoursesWeOffer>
 
-@foreach (Student st in Model.Student)
+@foreach (CoursesWeOffer courses in Model)
 {
-    <li><a href="Student/Index/@st.Id">@st.Name</a></li>
-}*@
+    <li><a href="Courses/Index/@courses.Id">@courses.Name</a></li>
+}
 

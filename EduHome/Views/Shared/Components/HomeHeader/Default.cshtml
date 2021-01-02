@@ -1,0 +1,62 @@
+﻿@model Bio
+
+    <!-- Header Area Start -->
+    <header class="top">
+        <div class="header-area header-sticky fixed">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="logo">
+                            <a asp-controller="Home" asp-action="Index"><img src="~/img/logo/@Model.HeaderLogo" alt="eduhome" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div class="content-wrapper one">
+                            <!-- Main Menu Start -->
+                            <div class="main-menu one text-right">
+                                <nav>
+                                    <ul>
+                                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                        <li><a asp-controller="About" asp-action="Index">About</a></li>
+                                        <li><a asp-controller="Courses" asp-action="Index">courses</a></li>
+                                        <li><a asp-controller="Event" asp-action="Index">event</a></li>
+                                        <li class="hidden-sm"><a asp-controller="Teacher" asp-action="Index">teacher</a></li>
+                                        <li><a asp-controller="Blog" asp-action="Index">blog</a></li>
+                                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                                        <li><a asp-controller="Home" asp-action="Index">Buy Now</a>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!--Search Form Start-->
+                            <div class="search-btn">
+                                <ul data-toggle="dropdown" class="header-search search-toggle">
+                                    <li class="search-menu">
+                                        <i class="fa fa-search"></i>
+                                    </li>
+                                </ul>
+                                <div class="search">
+                                    <div class="search-form">
+                                        <form id="search-form" class="search-model-form" action="#">
+                                            <input type="search" id="search-input" placeholder="Search here..." name="search" />
+                                            <ul id="search-list">
+
+                                            </ul>
+                                            <button type="submit">
+                                                <span><i class="fa fa-search"></i></span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of Search Form-->
+                            <div class="col-xs-12">
+                                <div class="mobile-menu hidden-lg hidden-md hidden-sm"></div>
+                            </div>
+                            <!-- Main Menu End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->

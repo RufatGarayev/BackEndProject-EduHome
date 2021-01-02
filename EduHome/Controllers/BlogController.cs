@@ -37,16 +37,19 @@ namespace EduHome.Controllers
         {
             BlogDetailsVM blogDetailsVM = new BlogDetailsVM
             {
-                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false).ToList(),
+                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.Id == id).ToList(),
 
                 BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
-                Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).Take(3).ToList(),       //Tolist() ???
 
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
-                Explainings = _context.Explainings.Where(exp => exp.IsDeleted == false).ToList(),
-                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false)
-                .Take(3).ToList()
+
+                Explainings = _context.Explainings.Where(exp => exp.IsDeleted == false && exp.Id == id)
+                .Include(exp => exp.Post).ToList(),
+                Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).ToList(),
+
+                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id == id)
+                .Include(lfb => lfb.BlogDetail).ToList(),
             };
             return View(blogDetailsVM);
         }

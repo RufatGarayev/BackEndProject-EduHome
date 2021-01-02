@@ -141,7 +141,7 @@ $(document).ready(function () {
         if (searchInput.length > 0) {
 
             $.ajax({
-                url: "/Home/Search?search=" + searchInput,
+                url: "/Courses/Search?search=" + searchInput,
                 type: "Get",
                 success: function (res) {
                     $("#search-list").append(res);

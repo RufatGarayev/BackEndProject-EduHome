@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace EduHome.ViewComponents
 {
-    public class HeaderViewComponent:ViewComponent
+    public class HomeHeaderViewComponent:ViewComponent
     {
         private readonly AppDbContext _context;
-        public HeaderViewComponent(AppDbContext context)
+        public HomeHeaderViewComponent(AppDbContext context)
         {
             _context = context;
         }
@@ -21,5 +21,6 @@ namespace EduHome.ViewComponents
             Bio model = _context.Bios.FirstOrDefault();
             return View(await Task.FromResult(model));
         }
+
     }
 }

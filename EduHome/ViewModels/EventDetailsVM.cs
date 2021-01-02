@@ -16,5 +16,8 @@ namespace EduHome.ViewModels
         public List<Post> Posts { get; set; }
         public List<Tag> Tags { get; set; }
         public List<LatestFromBlog> LatestFromBlog { get; set; }
+        public List<Event> Events { get; set; }
+        public List<Explaining> Explainings { get; set; }
+        public List<BlogDetail> BlogDetails { get; set; }
     }
 }

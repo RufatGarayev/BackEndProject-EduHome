@@ -3,6 +3,8 @@
     ViewData["Title"] = "Index";
 }
 
+@await Component.InvokeAsync("HomeHeader")
+
 <!-- Background Area Start -->
 <section id="slider-container" class="slider-area">
     <div class="slider-owl owl-theme owl-carousel">
@@ -94,22 +96,22 @@
         <div class="row">
             @foreach (CoursesWeOffer cwo in Model.CoursesWeOffers)
             {
-               <div class="col-md-4 col-sm-6 col-xs-12">
-                 <div class="single-course">
-                    <div class="course-img">
-                        <a asp-controller="Courses" asp-action="Details">
-                            <img src="~/img/course/@cwo.Image" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
-                            </div>
-                        </a>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-course">
+                        <div class="course-img">
+                            <a asp-controller="Courses" asp-action="Details">
+                                <img src="~/img/course/@cwo.Image" alt="course">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content">
+                            <h3><a asp-controller="Courses" asp-action="Details">@cwo.Name</a></h3>
+                            <p>@cwo.Description</p>
+                            <a class="default-btn" asp-controller="Courses" asp-action="Details">read more</a>
+                        </div>
                     </div>
-                    <div class="course-content">
-                        <h3><a asp-controller="Courses" asp-action="Details">@cwo.Name</a></h3>
-                        <p>@cwo.Description</p>
-                        <a class="default-btn" asp-controller="Courses" asp-action="Details">read more</a>
-                    </div>
-                  </div>
                 </div>
             }
         </div>
@@ -178,7 +180,7 @@
                     </div>
                 }
             </div>
-         </div>
+        </div>
     </div>
 </div>
 <!-- Testimonial Area End -->
@@ -196,26 +198,26 @@
         <div class="row">
             @foreach (LatestFromBlog lfb in Model.LatestFromBlogs)
             {
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a asp-controller="Blog" asp-action="Details"><img src="~/img/blog/@lfb.Image" alt="blog"></a>
-                        <div class="blog-hover">
-                            <a asp-controller="Blog" asp-action="Details"><i class="fa fa-link"></i></a>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-blog">
+                        <div class="blog-img">
+                            <a asp-controller="Blog" asp-action="Details"><img src="~/img/blog/@lfb.Image" alt="blog"></a>
+                            <div class="blog-hover">
+                                <a asp-controller="Blog" asp-action="Details"><i class="fa fa-link"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-top">
-                            <p>@lfb.Composer  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
-                        </div>
-                        <div class="blog-bottom">
-                            <h2><a asp-controller="Blog" asp-action="Details">I MUST EXPLAIN TO YOU HOW ALL THIS A MISTAKEN IDEA</a></h2>
-                            <a asp-controller="Blog" asp-action="Details">read more</a>
+                        <div class="blog-content">
+                            <div class="blog-top">
+                                <p>@lfb.Composer  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
+                            </div>
+                            <div class="blog-bottom">
+                                <h2><a asp-controller="Blog" asp-action="Details">I MUST EXPLAIN TO YOU HOW ALL THIS A MISTAKEN IDEA</a></h2>
+                                <a asp-controller="Blog" asp-action="Details">read more</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            }  
+            }
         </div>
     </div>
 </div>

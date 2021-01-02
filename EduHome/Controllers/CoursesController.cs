@@ -31,16 +31,29 @@ namespace EduHome.Controllers
         {
             CoursesDetailsVM coursesDetailsVM = new CoursesDetailsVM
             {   
-                CourseFeatures = _context.CourseFeatures.Where(cf => cf.IsDeleted == false).ToList(),                                               //fod
+                CourseFeatures = _context.CourseFeatures.Where(cf => cf.IsDeleted == false && cf.CoursesWeOfferId==id)
+                .Include(cf => cf.CoursesWeOffer).ToList(),
+                CoursesWeOffers = _context.CoursesWeOffers.Where(cwo => cwo.IsDeleted == false && cwo.Id == id)
+                .Include(cwo => cwo.CourseFeature).ToList(),
 
-                BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
+                Posts = _context.Posts.Where(p => p.IsDeleted == false)
+                .ToList(),
+                Explainings = _context.Explainings.Where(ex => ex.IsDeleted == false && ex.Id==id)
+                .Include(ex => ex.Post).ToList(),
 
-                Posts = _context.Posts.Where(p => p.IsDeleted == false).Take(3).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
+                BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
-                LeaveMessage = _context.LeaveMessages.FirstOrDefault()
+                LeaveMessage = _context.LeaveMessages.FirstOrDefault(),
             };
             return View(coursesDetailsVM);
-        }  
+        }
+
+        
+        public IActionResult Search(string search)
+        {
+            IEnumerable<CoursesWeOffer> model = _context.CoursesWeOffers.Where(h => h.Name.Contains(search)).OrderByDescending(h => h.Id).Take(4);
+            return PartialView("_SearchPartial", model);
+        }
     }
 }

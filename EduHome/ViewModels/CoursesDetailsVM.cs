@@ -15,5 +15,6 @@ namespace EduHome.ViewModels
         public List<Tag> Tags { get; set; }
         public LeaveMessage LeaveMessage { get; set; }
         public List<Explaining> Explainings { get; set; }
+        public List<CoursesWeOffer> CoursesWeOffers { get; set; }
     }
 }
