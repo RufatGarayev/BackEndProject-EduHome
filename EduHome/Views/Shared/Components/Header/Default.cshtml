@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="logo">
-                        <a href="index.html"><img src="~/img/logo/logo2.png" alt="eduhome" /></a>
+                        <a asp-controller="Home" asp-action="Index"><img src="~/img/logo/logo2.png" alt="eduhome" /></a>
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-6">
@@ -23,7 +23,15 @@
                                     <li class="hidden-sm"><a asp-controller="Teacher" asp-action="Index">teacher</a></li>
                                     <li><a asp-controller="Blog" asp-action="Index">blog</a></li>
                                     <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
-                                    <li><a asp-controller="Home" asp-action="Index">Buy Now</a>
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                    <li><a asp-controller="Account" asp-action="Login">login</a></li>
+                                    }
+                                    else
+                                    {
+                                    <h4>@ViewBag.UserName</h4>
+                                    <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                    }
                                 </ul>
                             </nav>
                         </div>

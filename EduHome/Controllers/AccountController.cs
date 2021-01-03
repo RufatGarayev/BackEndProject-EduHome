@@ -105,10 +105,10 @@ namespace EduHome.Controllers
         #region Create User Role
         //public async Task CreateUserRole()                                                            //Admin panelde role yaratmagi admine vermek istesek bu kodlar vasitesile edirik.
         //{
-        //    if (!(await _roleManager.RoleExistsAsync("Admin")))                                       //db - da ikinci defe yaratmamasi uchun. 
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
-        //    if (!(await _roleManager.RoleExistsAsync("Member")))
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
+            //if (!(await _roleManager.RoleExistsAsync("Admin")))                                       //db - da ikinci defe yaratmamasi uchun. 
+            //    await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
+            //if (!(await _roleManager.RoleExistsAsync("Member")))
+            //    await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
         //}
         #endregion
     }

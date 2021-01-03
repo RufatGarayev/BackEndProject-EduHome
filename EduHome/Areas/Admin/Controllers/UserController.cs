@@ -43,7 +43,7 @@ namespace EduHome.Controllers
         }
 
 
-        //-----ChangeStatus-----       
+        //-----ChangeStatus-----//     
         public async Task<IActionResult> ChangeStatus(string id)
         {
             if (id == null) return NotFound();
@@ -70,7 +70,7 @@ namespace EduHome.Controllers
         }
 
 
-        //-----ChangeRole-----
+        //-----ChangeRole-----//
         public async Task<IActionResult> ChangeRole(string id)
         {
             if (id == null) return NotFound();
@@ -118,7 +118,7 @@ namespace EduHome.Controllers
         }
 
 
-        //-----ResetPassword-----
+        //-----ResetPassword-----//
         public  IActionResult ResetPassword(string id)
         {
             return View();
@@ -141,7 +141,7 @@ namespace EduHome.Controllers
         }
 
 
-        //-----getUserVM-----
+        //-----getUserVM-----//
         private async Task<UserVM> getUserVM(AppUser user)
         {
             List<string> roles = new List<string>();

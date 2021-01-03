@@ -24,8 +24,8 @@ namespace EduHome.ViewComponents
             ViewBag.UserFullname = string.Empty;
             if (User.Identity.IsAuthenticated)
             {
-                string fullname = (await _userManager.FindByNameAsync(User.Identity.Name)).Fullname;
-                ViewBag.UserFullname = fullname;
+                string username = (await _userManager.FindByNameAsync(User.Identity.Name)).UserName;
+                ViewBag.UserName = username;
             }
 
             Bio model = _context.Bios.FirstOrDefault();
