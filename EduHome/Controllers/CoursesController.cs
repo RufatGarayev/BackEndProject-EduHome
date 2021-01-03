@@ -36,10 +36,13 @@ namespace EduHome.Controllers
                 CoursesWeOffers = _context.CoursesWeOffers.Where(cwo => cwo.IsDeleted == false && cwo.Id == id)
                 .Include(cwo => cwo.CourseFeature).ToList(),
 
-                Posts = _context.Posts.Where(p => p.IsDeleted == false)
-                .ToList(),
-                Explainings = _context.Explainings.Where(ex => ex.IsDeleted == false && ex.Id==id)
-                .Include(ex => ex.Post).ToList(),
+                Posts = _context.Posts.Where(p => p.IsDeleted == false).ToList(),
+
+                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.LatestFromBlogId == id)
+                .Include(bd => bd.LatestFromBlog).ToList(),
+                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).ToList(),
+
+                //Explainings = _context.Explainings.Where(ex => ex.IsDeleted == false).ToList(),
 
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
                 BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),

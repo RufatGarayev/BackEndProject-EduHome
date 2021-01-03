@@ -29,7 +29,7 @@ namespace EduHome.Controllers
                 List<LatestFromBlog> latestFromBlog = _context.LatestFromBlogs.Where(b => b.IsDeleted == false).Take(3).ToList();
                 return View(latestFromBlog);
             }
-            List<LatestFromBlog> LatestFromBlog = _context.LatestFromBlogs.Where(b => b.IsDeleted == false).Skip(((int)page-1) * 3).Take(3).ToList();
+            List<LatestFromBlog> LatestFromBlog = _context.LatestFromBlogs.Where(b => b.IsDeleted == false).Skip(((int)page-1) * 4).Take(3).ToList();
             return View(LatestFromBlog);
         }
 
@@ -37,19 +37,18 @@ namespace EduHome.Controllers
         {
             BlogDetailsVM blogDetailsVM = new BlogDetailsVM
             {
-                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.Id == id).ToList(),
-
                 BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
 
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
 
-                Explainings = _context.Explainings.Where(exp => exp.IsDeleted == false && exp.Id == id)
-                .Include(exp => exp.Post).ToList(),
-                Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).ToList(),
+                Explainings = _context.Explainings.Where(exp => exp.IsDeleted == false).ToList(),
+                //Posts = _context.Posts.Where(lfb => lfb.IsDeleted == false).ToList(),
 
-                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id == id)
-                .Include(lfb => lfb.BlogDetail).ToList(),
+                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.LatestFromBlogId == id)
+                .Include(bd => bd.LatestFromBlog).ToList(),
+                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id==id)
+                .Include(lfb => lfb.BlogDetail).Take(3).ToList(),
             };
             return View(blogDetailsVM);
         }

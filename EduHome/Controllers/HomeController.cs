@@ -20,7 +20,7 @@ namespace EduHome.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
             HomeVM homeVM = new HomeVM
             {
@@ -30,10 +30,14 @@ namespace EduHome.Controllers
 
                 ChooseEduHome = _context.ChooseEduHomes.Where(ceh => ceh.IsDeleted == false)
                 .FirstOrDefault(),
+                CourseFeatures = _context.CourseFeatures.Where(cf => cf.IsDeleted==false && cf.CoursesWeOfferId==id)
+                .Include(cf => cf.CoursesWeOffer).ToList(),
 
                 CoursesWeOffers = _context.CoursesWeOffers.Where(cwo => cwo.IsDeleted == false).Take(3).ToList(),
 
-                UpcomingEvents = _context.UpcomingEvents.Where(ue => ue.IsDeleted == false).ToList(),
+                WorkShops = _context.WorkShops.Where(ws => ws.IsDeleted == false && ws.EventId==id)
+                .Include(ws => ws.Event).ToList(),
+                Events = _context.Events.Where(e => e.IsDeleted == false).Take(8).ToList(),
 
                 Students = _context.Students.Where(stu => stu.IsDeleted == false).ToList(),
                 LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(3).ToList()

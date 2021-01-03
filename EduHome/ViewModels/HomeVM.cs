@@ -13,8 +13,12 @@ namespace EduHome.ViewModels
         public List<SectionDescription> SectionDescriptions { get; set; }
         public ChooseEduHome ChooseEduHome { get; set; }
         public List<CoursesWeOffer> CoursesWeOffers { get; set; }
-        public List<UpcomingEvent> UpcomingEvents { get; set; }
         public List<Student> Students { get; set; }
         public List<LatestFromBlog> LatestFromBlogs { get; set; }
+        public List<CourseFeature> CourseFeatures { get; set; }
+        public List<WorkShop> WorkShops { get; set; }
+        public List<Event> Events { get; set; }
+
+        //public List<UpcomingEvent> UpcomingEvents { get; set; }
     }
 }

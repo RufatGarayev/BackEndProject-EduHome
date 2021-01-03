@@ -144,19 +144,19 @@
                     </div>
                     <div class="single-blog-widget mb-50">
                         <h3>latest post</h3>
-                        @foreach (Post post in Model.Posts)
+                        @foreach (LatestFromBlog post in Model.LatestFromBlogs.Take(3))
                         {
                             <div class="single-post mb-30">
                                 <div class="single-post-img">
-                                    <a asp-controller="Blog" asp-action="Details">
-                                        <img src="~/img/post/@post.Image" alt="post">
+                                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id">
+                                        <img src="~/img/blog/@post.Image" style="width:95px !important" alt="post">
                                         <div class="blog-hover">
                                             <i class="fa fa-link"></i>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="single-post-content">
-                                    <h4><a asp-controller="Blog" asp-action="Details">@post.Description</a></h4>
+                                    <h4><a asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id">English Language Course for you</a></h4>
                                     <p>@post.Composer  /  June 20, 2017</p>
                                 </div>
                             </div>

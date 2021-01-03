@@ -16,5 +16,7 @@ namespace EduHome.ViewModels
         public LeaveMessage LeaveMessage { get; set; }
         public List<Explaining> Explainings { get; set; }
         public List<CoursesWeOffer> CoursesWeOffers { get; set; }
+        public List<LatestFromBlog> LatestFromBlogs { get; set; }
+        public List<BlogDetail> BlogDetails { get; set; }
     }
 }
