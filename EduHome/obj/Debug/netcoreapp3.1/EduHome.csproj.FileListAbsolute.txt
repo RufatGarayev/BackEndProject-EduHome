@@ -207,3 +207,8 @@ C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\UpcomingEvents\Details.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\UpcomingEvents\Edit.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\UpcomingEvents\Index.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Students\Create.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Students\Delete.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Students\Details.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Students\Edit.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Students\Index.cshtml.g.cs
