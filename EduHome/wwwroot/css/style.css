@@ -1256,8 +1256,8 @@ textarea {
     height: 380px;
     overflow-y: auto;
 }
-.notice-left{
-    height: 540px;
+.notice-left {
+    height: 586px !important;
     overflow-y: auto;
 }
 /*-----------------------------------------*/

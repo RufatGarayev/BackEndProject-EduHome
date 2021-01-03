@@ -16,17 +16,8 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="header-top-right text-right">
                     <ul>
-                        @*<li><a asp-controller="Account" asp-action="Login">login</a></li>
-                        <li><a asp-controller="Account" asp-action="Register">signup</a></li>*@
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <li><a asp-controller="Account" asp-action="Login">login</a></li>
-                        }
-                        else
-                        {
-                            <h4 class="text-light">@ViewBag.UserName</h4>
-                            <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
-                        }
+                        <li><a asp-controller="Account" asp-action="Login">login</a></li>
+                        <li><a asp-controller="Account" asp-action="Register">signup</a></li>
                     </ul>
                 </div>
             </div>

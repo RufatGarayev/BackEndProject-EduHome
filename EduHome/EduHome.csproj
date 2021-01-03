@@ -46,7 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\Admin\Views\Shared\_Validation.cshtml" />
     <Content Remove="Areas\Admin\Views\User\ChangeRole.cshtml" />
     <Content Remove="Areas\Admin\Views\User\ChangeStatus.cshtml" />
     <Content Remove="Areas\Admin\Views\User\Index.cshtml" />
@@ -70,7 +69,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Areas\Admin\Views\Shared\_Validation.cshtml" />
     <None Include="Areas\Admin\Views\User\ChangeRole.cshtml" />
     <None Include="Areas\Admin\Views\User\ChangeStatus.cshtml" />
     <None Include="Areas\Admin\Views\User\Index.cshtml" />

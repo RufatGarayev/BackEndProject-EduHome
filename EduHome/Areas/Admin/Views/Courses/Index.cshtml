@@ -1,0 +1,49 @@
+﻿@model List<CoursesWeOffer>
+@{
+    ViewData["Title"] = "CoursesWeOffer";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Courses</h4>
+            <a class="btn btn-success" style="margin-bottom:20px" asp-controller="Courses" asp-action="Create">Create</a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Course Name
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (CoursesWeOffer course in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @course.Name
+                                </td>
+                                <td>
+                                    <a asp-controller="Courses" asp-action="Detail" asp-route-id="@course.Id" class="btn btn-secondary">
+                                        <i class="mdi mdi-information"></i>
+                                    </a>
+                                    <a asp-controller="Courses" asp-action="Update" asp-route-id="@course.Id" class="btn btn-warning">
+                                        <i class="mdi mdi-update"></i>
+                                    </a>
+                                    <a asp-controller="Courses" asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger">
+                                        <i class="mdi mdi-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
