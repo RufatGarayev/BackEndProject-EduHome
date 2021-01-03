@@ -26,5 +26,6 @@ namespace EduHome.Models
         [ForeignKey("CoursesWeOffer")]
         public int CoursesWeOfferId { get; set; }
         public CoursesWeOffer CoursesWeOffer { get; set; }
+        public List<CourseFeatureChooseEduHome> CourseFeatureChooseEduHomes { get; set; }
     }
 }

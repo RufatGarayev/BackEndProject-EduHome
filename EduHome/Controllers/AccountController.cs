@@ -88,7 +88,7 @@ namespace EduHome.Controllers
                 }
                 return View();
             }
-
+                                                                //Member
             await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());    //yeni user-e member rolu vermek uchun
             await _signInManager.SignInAsync(newUser, true);                        //register olduq avtomatik sign olsun
             return RedirectToAction("Index", "Home");
@@ -101,14 +101,15 @@ namespace EduHome.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //#region Create User Role
-        //public async Task CreateUserRole()                   //Admin panelde role yaratmagi admine vermek istesek bu kodlar vasitesile edirik.
+
+        #region Create User Role
+        //public async Task CreateUserRole()                                                            //Admin panelde role yaratmagi admine vermek istesek bu kodlar vasitesile edirik.
         //{
-        //    if (!(await _roleManager.RoleExistsAsync("Admin")))                          //db - da ikinci defe yaratmamasi uchun. 
+        //    if (!(await _roleManager.RoleExistsAsync("Admin")))                                       //db - da ikinci defe yaratmamasi uchun. 
         //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
         //    if (!(await _roleManager.RoleExistsAsync("Member")))
         //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
         //}
-        //#endregion
+        #endregion
     }
 }

@@ -29,12 +29,11 @@ namespace EduHome.Controllers
         {
             EventDetailsVM eventDetailsVM = new EventDetailsVM
             {
-                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.Id == id).ToList(),
+                BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false).ToList(),
 
                 WorkShops = _context.WorkShops.Where(ws => ws.IsDeleted == false && ws.EventId==id)
                 .Include(ws => ws.Event).ToList(),
-                Events = _context.Events.Where(e => e.IsDeleted == false && e.Id==id).Include(e => e.WorkShop)
-                .ToList(),
+                Events = _context.Events.Where(e => e.IsDeleted == false && e.Id==id).Include(e => e.WorkShop).ToList(),
 
                 Speakers = _context.Speakers.Where(s => s.IsDeleted == false).ToList(),
                 BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),

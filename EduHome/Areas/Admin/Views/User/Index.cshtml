@@ -1,0 +1,95 @@
+﻿@model List<UserVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Categories</h4>
+            <a asp-controller="Category" asp-action="Create" class="btn btn-success">
+                Create
+            </a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Fullname
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Username
+                            </th>
+                            <th>
+                                Role
+                            </th>
+                            <th>
+                                IsDeleted
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (UserVM user in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @user.Fullname
+                                </td>
+                                <td>
+                                    @user.Email
+                                </td>
+                                <td>
+                                    @user.Username
+                                </td>
+                                <td>
+                                    @user.Role
+                                </td>
+                                @if (user.IsDeleted)
+                                {
+                                    <td style="color:red">
+                                        Disabled
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="color:forestgreen">
+                                        Enabled
+                                    </td>
+                                }
+                                <td>
+                                    @if (user.Username != User.Identity.Name)
+                                    {
+                                        @if (user.IsDeleted)
+                                        {
+                                            <a asp-controller="User" asp-action="Activated" asp-route-id="@user.Id" class="btn btn-success">
+                                                Enable
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="User" asp-action="Activated" asp-route-id="@user.Id" class="btn btn-danger">
+                                                Disable
+                                            </a>
+                                        }
+                                    }
+
+                                    <a asp-controller="User" asp-action="ResetPassword" asp-route-id="@user.Id" class="btn btn-warning">ResetPassword</a>
+                                    @if (user.Username != User.Identity.Name)
+                                    {
+                                        <a asp-controller="User" asp-action="ChangeRole" asp-route-id="@user.Id" class="btn btn-secondary">ChangeRole</a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
