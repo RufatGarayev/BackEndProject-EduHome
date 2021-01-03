@@ -1,0 +1,17 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <img src="~/img/@Model.Image" style="width:120px!important; margin-bottom: 20px" />
+            @Html.Raw(Model.Title)
+            <div style="margin-top: 20px">
+                @Html.Raw(Model.Description)
+            </div>
+        </div>
+    </div>
+</div>
+<a class="btn btn-secondary" asp-action="Index">Go Back</a>

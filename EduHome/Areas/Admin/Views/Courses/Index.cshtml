@@ -13,6 +13,9 @@
                     <thead>
                         <tr>
                             <th>
+                                Course Photo
+                            </th>
+                            <th>
                                 Course Name
                             </th>
                             <th>
@@ -23,22 +26,25 @@
                     <tbody>
                         @foreach (CoursesWeOffer course in Model)
                         {
-                            <tr>
-                                <td>
-                                    @course.Name
-                                </td>
-                                <td>
-                                    <a asp-controller="Courses" asp-action="Detail" asp-route-id="@course.Id" class="btn btn-secondary">
-                                        <i class="mdi mdi-information"></i>
-                                    </a>
-                                    <a asp-controller="Courses" asp-action="Update" asp-route-id="@course.Id" class="btn btn-warning">
-                                        <i class="mdi mdi-update"></i>
-                                    </a>
-                                    <a asp-controller="Courses" asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <img src="~/img/@course.Image" style="width:60px!important" />
+                            </td>
+                            <td>
+                                @course.Name
+                            </td>
+                            <td>
+                                <a asp-controller="Courses" asp-action="Detail" asp-route-id="@course.Id" class="btn btn-secondary">
+                                    <i class="mdi mdi-information"></i>
+                                </a>
+                                <a asp-controller="Courses" asp-action="Update" asp-route-id="@course.Id" class="btn btn-warning">
+                                    <i class="mdi mdi-update"></i>
+                                </a>
+                                <a asp-controller="Courses" asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>

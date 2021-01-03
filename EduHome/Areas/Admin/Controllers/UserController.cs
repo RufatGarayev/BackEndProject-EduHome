@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EduHome.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller 
     {
         private readonly UserManager<AppUser> _userManager;
@@ -22,8 +22,8 @@ namespace EduHome.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<AppUser> users = _userManager.Users.ToList();     //user'larin siyahisini elde etmek uchun
-            List<UserVM> usersVM = new List<UserVM>();             //users-dakiler bura yazilacaq, ve buradan da ekrana
+            List<AppUser> users = _userManager.Users.ToList(); 
+            List<UserVM> usersVM = new List<UserVM>();             
             foreach (AppUser user in users)
             {
                 UserVM userVM = new UserVM
@@ -38,7 +38,7 @@ namespace EduHome.Controllers
                 usersVM.Add(userVM);
             }
 
-            //return Json(usersVM);     //user-in rollarini qaytarir
+            //return Json(usersVM); 
             return View(usersVM);
         }
 

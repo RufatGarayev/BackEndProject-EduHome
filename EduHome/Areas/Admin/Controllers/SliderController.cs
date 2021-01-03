@@ -5,27 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using EduHome.DAL;
 using EduHome.Extensions;
+using EduHome.Helpers;
 using EduHome.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CoursesController : Controller
+    public class SliderController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public CoursesController(AppDbContext context)
+        public SliderController(AppDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-            return View(_context.CoursesWeOffers.Where(c => c.IsDeleted==false).ToList());
+            return View(_context.Sliders.Where(s => s.IsDeleted == false).ToList());
         }
-
 
         #region Create
         //Create - Get method
@@ -37,50 +36,50 @@ namespace EduHome.Areas.Admin.Controllers
         //Create - Post method
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CoursesWeOffer course)
+        public async Task<IActionResult> Create(Slider slider)
         {
             //-- Photo --//
 
-            if (course.Photo == null)
+            if (slider.Photo == null)
             {
-                ModelState.AddModelError("Photo", "Please insert a photo");
+                //ModelState.AddModelError("Photo", "Please insert a photo");
                 return View();
             }
 
-            if (!course.Photo.IsImage())
+            if (!slider.Photo.IsImage())
             {
                 ModelState.AddModelError("Photo", "Please select jpg or png type");
                 return View();
             }
 
-            if (!course.Photo.MaxSize(300))
+            if (!slider.Photo.MaxSize(300))
             {
                 ModelState.AddModelError("Photo", "Max size of the picture must be less than 200kb");
                 return View();
             }
 
-            string fileName = Guid.NewGuid().ToString() + course.Photo.FileName;
-            string path = Path.Combine(_env.WebRootPath, "img", "course", fileName);
+            string fileName = Guid.NewGuid().ToString() + slider.Photo.FileName;
+            string path = Path.Combine(_env.WebRootPath, "img", fileName);
 
             //--FileStream--
             FileStream fileStream = new FileStream(path, FileMode.Create);
-            await course.Photo.CopyToAsync(fileStream);
+            await slider.Photo.CopyToAsync(fileStream);
 
 
             //-- Text --//
 
-            if (!ModelState.IsValid) return NotFound(course);
+            if (!ModelState.IsValid) return NotFound(slider);
 
-            bool isExist = _context.CoursesWeOffers.Where(c => c.IsDeleted == false)
-                .Any(c => c.Name.ToLower() == course.Name.ToLower());
+            bool isExist = _context.Sliders.Where(s => s.IsDeleted == false)
+                .Any(s => s.Title.ToLower() == slider.Title.ToLower());
             if (isExist)
             {
-                ModelState.AddModelError("Name", "You have already written something same this one!");
+                ModelState.AddModelError("Title", "You have already written something same this one!");
                 return View();
             }
 
-            course.IsDeleted = false;
-            await _context.CoursesWeOffers.AddAsync(course);
+            slider.IsDeleted = false;
+            await _context.Sliders.AddAsync(slider);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -92,9 +91,9 @@ namespace EduHome.Areas.Admin.Controllers
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return NotFound();
-            CoursesWeOffer course = _context.CoursesWeOffers.Where(c => c.IsDeleted == false).FirstOrDefault(c => c.Id == id);
-            if (course == null) return NotFound();
-            return View(course);
+            Slider slider  = _context.Sliders.Where(s => s.IsDeleted == false).FirstOrDefault(s => s.Id == id);
+            if (slider == null) return NotFound();
+            return View(slider);
         }
         #endregion
 
@@ -104,9 +103,9 @@ namespace EduHome.Areas.Admin.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
-            CoursesWeOffer course = _context.CoursesWeOffers.Where(c => c.IsDeleted == false).FirstOrDefault(c => c.Id == id);
-            if (course == null) return NotFound();
-            return View(course);
+            Slider slider = _context.Sliders.Where(s => s.IsDeleted == false).FirstOrDefault(s => s.Id == id);
+            if (slider == null) return NotFound();
+            return View(slider);
         }
 
 
@@ -117,26 +116,26 @@ namespace EduHome.Areas.Admin.Controllers
         public async Task<IActionResult> DeletePost(int? id)
         {
             if (id == null) return NotFound();
-            CoursesWeOffer course = _context.CoursesWeOffers.Where(c => c.IsDeleted == false)
-                .Include(c => c.CourseFeature).FirstOrDefault(c => c.Id == id);
+            Slider slider = await _context.Sliders.FindAsync(id);
+            if (slider == null) return NotFound();
 
-            if (course == null) return NotFound();
+            int count = _context.Sliders.Count();
+            if (count == 1)
+            {
+                return Content("Please add more sliders!");
+            }
 
-            _context.CoursesWeOffers.Remove(course);
-            await _context.SaveChangesAsync();
+            bool isDeleted = Helper.DeleteImage(_env.WebRootPath, "img", slider.Image);
+            if (!isDeleted)
+            {
+                ModelState.AddModelError("", "There are some errors");
+                return View(slider);
+            }
 
-            //course.IsDeleted = true;
-            //course.DeletedTime = DateTime.Now;
-            //foreach (CourseFeature cf in course.CourseFeatures)
-            //{
-            //    cf.DeletedTime = DateTime.Now;
-            //    cf.IsDeleted = true;
-            //}
-
+            _context.Sliders.Remove(slider);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         #endregion
-
     }
 }

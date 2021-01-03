@@ -1,0 +1,18 @@
+﻿@model CoursesWeOffer
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <img src="~/img/@Model.Image" style="width:120px!important; margin-bottom: 20px" />
+            <h4 class="card-title">@Model.Name</h4>
+        </div>
+    </div>
+</div>
+<h3 class="text-danger">Are you sure?</h3>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<a asp-action="Index" class="mt-2 btn btn-secondary">Go Back</a>
