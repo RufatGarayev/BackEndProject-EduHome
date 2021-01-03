@@ -17,7 +17,7 @@ namespace EduHome.Models
         public string Description { get; set; }
         [Required]
         public string Image { get; set; }
-        [NotMapped, Required]
+        [NotMapped]
         public IFormFile Photo { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
