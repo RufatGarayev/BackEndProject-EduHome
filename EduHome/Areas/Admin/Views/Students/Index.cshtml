@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2 style="margin-bottom:25px">Index</h2>
+<h2 style="margin-bottom:50px">Index</h2>
 
 <p>
     <a class="btn btn-success" style="margin-bottom:30px" asp-controller="UpcomingEvents" asp-action="Create">Create</a>
@@ -16,13 +16,13 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Image)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Position)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Image)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsDeleted)
@@ -41,14 +41,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td style="width:300px">
-                @Html.DisplayFor(modelItem => item.Description)
+            <td>
+                <img src="~/img/testimonial/@item.Image" style="width:70px!important; height:70px!important;" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Position)
             </td>
-            <td>
-                <img src="~/img/testimonial/@item.Image" style="width:70px!important; height:70px!important;" />
+            <td style="width:300px">
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsDeleted)

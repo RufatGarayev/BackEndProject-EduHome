@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<h2 style="margin-bottom:20px">Edit</h2>
 
 <h4>LatestFromBlog</h4>
 <hr />
@@ -41,13 +41,13 @@
                 <span asp-validation-for="TimeDeleted" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>
 
