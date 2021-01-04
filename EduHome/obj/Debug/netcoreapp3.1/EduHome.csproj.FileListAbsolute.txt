@@ -243,3 +243,8 @@ C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OurTeachers\Details.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OurTeachers\Edit.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OurTeachers\Index.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TakeAVideoTours\Create.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TakeAVideoTours\Delete.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TakeAVideoTours\Details.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TakeAVideoTours\Edit.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TakeAVideoTours\Index.cshtml.g.cs
