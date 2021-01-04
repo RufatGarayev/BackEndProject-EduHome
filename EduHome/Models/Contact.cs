@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace EduHome.Models
 {
-    public class LatestFromBlog       //---BLOG---//
+    public class Contact
     {
         public int Id { get; set; }
-        [Required]
-        public string Image { get; set; }
-        public string Composer { get; set; }
-        public string Description { get; set; }
-        public DateTime? Date { get; set; }
+        [Required, StringLength(150)]
+        public string Location { get; set; }
+        [Required, StringLength(200)]
+        public string Phone { get; set; }
+        public string Website { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
-        public BlogDetail BlogDetail { get; set; }
     }
 }

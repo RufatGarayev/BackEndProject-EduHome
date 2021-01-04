@@ -21,7 +21,7 @@ namespace EduHome.Controllers
             ContactVM contactVM = new ContactVM
             {
                 Map = _context.Maps.Where(m => m.IsDeleted==false).FirstOrDefault(),
-                Addresses = _context.Addresses.Where(a => a.IsDeleted==false).ToList()
+                Contact = _context.Contacts.Where(m => m.IsDeleted==false).FirstOrDefault()
             };
             return View(contactVM);
         }

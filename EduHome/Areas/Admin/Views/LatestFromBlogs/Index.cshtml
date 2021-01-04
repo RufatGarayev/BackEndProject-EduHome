@@ -19,6 +19,9 @@
                 @Html.DisplayNameFor(model => model.Composer)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
@@ -35,28 +38,31 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    <img src="~/img/blog/@item.Image" style="width:70px!important; height:70px!important;" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Composer)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsDeleted)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeDeleted)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary"><i class="mdi mdi-information"></i></a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-update"></i></a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <img src="~/img/blog/@item.Image" style="width:70px!important; height:70px!important;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Composer)
+            </td>
+            <td style="width:300px">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeDeleted)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary"><i class="mdi mdi-information"></i></a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-update"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

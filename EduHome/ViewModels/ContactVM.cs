@@ -9,6 +9,6 @@ namespace EduHome.ViewModels
     public class ContactVM
     {
         public Map Map { get; set; }
-        public List<Address> Addresses { get; set; }
+        public Contact Contact { get; set; }
     }
 }

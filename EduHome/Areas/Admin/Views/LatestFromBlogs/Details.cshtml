@@ -14,13 +14,19 @@
             @Html.DisplayNameFor(model => model.Image)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Image)
+            <img src="~/img/blog/@Model.Image" style="width:100px!important; height:80px!important;" />
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Composer)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Composer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd style="width:300px">
+            @Html.DisplayFor(model => model.Description)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Date)

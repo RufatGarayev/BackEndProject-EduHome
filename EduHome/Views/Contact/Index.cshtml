@@ -59,19 +59,33 @@
         <div class="row">
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <div class="contact-contents text-center">
-                    @foreach (Address a in Model.Addresses)
-                    {
-                        <div class="single-contact mb-65">
-                            <div class="contact-icon">
-                                <img src="img/contact/@a.Image" alt="contact">
-                            </div>
-                            <div class="contact-add">
-                                <h3>address</h3>
-                                <p>@a.Street, City Street</p>
-                                <p>@a.City, @a.Country</p>
-                            </div>
+                    <div class="single-contact mb-65">
+                        <div class="contact-icon">
+                            <img src="img/contact/contact1.png" alt="contact">
                         </div>
-                    }
+                        <div class="contact-add">
+                            <h3>address</h3>
+                            @Html.Raw(Model.Contact.Location)
+                        </div>
+                    </div>
+                    <div class="single-contact mb-65">
+                        <div class="contact-icon">
+                            <img src="img/contact/contact2.png" alt="contact">
+                        </div>
+                        <div class="contact-add">
+                            <h3>Phone</h3>
+                            @Html.Raw(Model.Contact.Phone)
+                        </div>
+                    </div>
+                    <div class="single-contact mb-65">
+                        <div class="contact-icon">
+                            <img src="img/contact/contact3.png" alt="contact">
+                        </div>
+                        <div class="contact-add">
+                            <h3>Website</h3>
+                            @Html.Raw(Model.Contact.Website)
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">

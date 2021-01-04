@@ -55,7 +55,7 @@ namespace EduHome.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Image,Composer,Date,IsDeleted,TimeDeleted")] LatestFromBlog latestFromBlog)
+        public async Task<IActionResult> Create([Bind("Id,Image,Composer,Description,Date,IsDeleted,TimeDeleted")] LatestFromBlog latestFromBlog)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace EduHome.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Composer,Date,IsDeleted,TimeDeleted")] LatestFromBlog latestFromBlog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Composer,Description,Date,IsDeleted,TimeDeleted")] LatestFromBlog latestFromBlog)
         {
             if (id != latestFromBlog.Id)
             {
