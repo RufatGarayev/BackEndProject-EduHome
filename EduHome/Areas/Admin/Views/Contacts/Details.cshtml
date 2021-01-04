@@ -1,0 +1,47 @@
+﻿@model EduHome.Models.Contact
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 style="margin-bottom:20px">Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Website)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Website)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeDeleted)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-secondary" style="margin-top:20px" asp-action="Index">Back to List</a>
+</div>
