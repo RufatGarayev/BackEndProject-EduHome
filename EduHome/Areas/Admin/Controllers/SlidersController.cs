@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EduHome.DAL;
 using EduHome.Models;
+using System.IO;
+using EduHome.Extensions;
+using Microsoft.AspNetCore.Hosting;
 
 namespace EduHome.Areas.Admin.Controllers
 {
@@ -63,6 +66,7 @@ namespace EduHome.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(slider);
         }
 

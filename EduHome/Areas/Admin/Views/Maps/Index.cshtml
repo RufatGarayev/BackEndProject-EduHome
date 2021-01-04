@@ -6,6 +6,8 @@
 
 <h2 style="margin-bottom:50px">Index</h2>
 
+<h4 style="margin-bottom:50px">Map</h4>
+
 <p>
     <a class="btn btn-success" style="margin-bottom:30px" asp-controller="Maps" asp-action="Create">Create</a>
 </p>
@@ -36,7 +38,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Year)
                 </td>
-                <td style="width:450px">
+                <td style="width:450px !important;">
                     @Html.DisplayFor(modelItem => item.EmbedLink)
                 </td>
                 <td>
