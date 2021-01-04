@@ -1,0 +1,59 @@
+﻿@model EduHome.Models.Event
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 style="margin-bottom:20px">Details</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            <img src="~/img/event/@Model.Image" style="width:100px!important; height:80px!important;" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Day)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Day)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeSpan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeSpan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Venue)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Venue)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeDeleted)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-secondary" style="margin-top:20px" asp-action="Index">Back to List</a>
+</div>
