@@ -11,6 +11,7 @@ namespace EduHome.Models
         public int Id { get; set; }
         public DateTime? Starts { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
         public string AboutCourse { get; set; }
         public string HowToApply { get; set; }
         public string Certification { get; set; }

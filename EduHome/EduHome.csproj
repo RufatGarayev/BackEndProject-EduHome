@@ -47,6 +47,8 @@
     <Compile Remove="Migrations\20210103223217_UpcomingEventUpdated.Designer.cs" />
     <Compile Remove="Migrations\20210103223430_UpcomingEventUpdated.cs" />
     <Compile Remove="Migrations\20210103223430_UpcomingEventUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20210104164138_CoursesFeatureUpdated.cs" />
+    <Compile Remove="Migrations\20210104164138_CoursesFeatureUpdated.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

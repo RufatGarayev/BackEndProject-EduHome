@@ -60,18 +60,18 @@
                         @foreach (CourseFeature cf in Model.CourseFeatures.Take(1))
                         {
                             <h2>@cf.Title</h2>
-                            <p>@cf.AboutCourse</p>
+                            <p>@cf.Description</p>
                         }
                         <div class="course-details-left">
                             @foreach (CourseFeature cf in Model.CourseFeatures.Take(1))
                             {
                                 <div class="single-course-left">
-                                    <h3 class="pt-40">@cf.Title</h3>
-                                    <p>@cf.AboutCourse</p>
-                                    <h3 class="pt-40">@cf.Title</h3>
-                                    <p>@cf.Certification</p>
-                                    <h3 class="pt-40">@cf.Title</h3>
-                                    <p>@cf.HowToApply</p>
+                                    <h3 class="pt-40">@cf.AboutCourse</h3>
+                                    <p>@cf.Description</p>
+                                    <h3 class="pt-40">@cf.Certification</h3>
+                                    <p>@cf.Description</p>
+                                    <h3 class="pt-40">@cf.HowToApply</h3>
+                                    <p>@cf.Description</p>
                                 </div>
                             }
                         </div>
