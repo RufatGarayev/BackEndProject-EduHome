@@ -1,0 +1,117 @@
+﻿@model EduHome.Models.CourseFeature
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2 style="margin-bottom:20px">Delete</h2>
+
+<h3 class="text-danger" style="margin-bottom:15px">Are you sure you want to delete this?</h3>
+<div>
+    <h4>CourseFeature</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Starts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Starts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutCourse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AboutCourse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HowToApply)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HowToApply)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Certification)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Certification)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassDuration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassDuration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SkillLevel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SkillLevel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Language)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Students)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Students)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Assesments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Assesments)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CourseFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CoursesWeOffer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CoursesWeOffer.Description)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>

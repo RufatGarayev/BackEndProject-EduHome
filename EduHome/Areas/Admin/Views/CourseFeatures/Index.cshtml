@@ -1,0 +1,128 @@
+﻿@model IEnumerable<EduHome.Models.CourseFeature>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="margin-bottom:50px">Index</h2>
+
+<p>
+    <a class="btn btn-success" style="margin-bottom:30px" asp-controller="CourseFeatures" asp-action="Create">Create</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Starts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AboutCourse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HowToApply)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Language)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assesments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoursesWeOffer)
+            </th>
+            <th>
+                Settings
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Starts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AboutCourse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HowToApply)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Certification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassDuration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SkillLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Students)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Assesments)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseFee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDeleted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeDeleted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoursesWeOffer.Description)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary"><i class="mdi mdi-information"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-update"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

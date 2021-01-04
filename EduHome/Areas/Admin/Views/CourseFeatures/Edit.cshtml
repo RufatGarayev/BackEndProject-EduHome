@@ -1,0 +1,107 @@
+﻿@model EduHome.Models.CourseFeature
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2 style="margin-bottom:20px">Edit</h2>
+
+<h4>CourseFeature</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Starts" class="control-label"></label>
+                <input asp-for="Starts" class="form-control" />
+                <span asp-validation-for="Starts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AboutCourse" class="control-label"></label>
+                <input asp-for="AboutCourse" class="form-control" />
+                <span asp-validation-for="AboutCourse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HowToApply" class="control-label"></label>
+                <input asp-for="HowToApply" class="form-control" />
+                <span asp-validation-for="HowToApply" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certification" class="control-label"></label>
+                <input asp-for="Certification" class="form-control" />
+                <span asp-validation-for="Certification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassDuration" class="control-label"></label>
+                <input asp-for="ClassDuration" class="form-control" />
+                <span asp-validation-for="ClassDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkillLevel" class="control-label"></label>
+                <input asp-for="SkillLevel" class="form-control" />
+                <span asp-validation-for="SkillLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Students" class="control-label"></label>
+                <input asp-for="Students" class="form-control" />
+                <span asp-validation-for="Students" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assesments" class="control-label"></label>
+                <input asp-for="Assesments" class="form-control" />
+                <span asp-validation-for="Assesments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourseFee" class="control-label"></label>
+                <input asp-for="CourseFee" class="form-control" />
+                <span asp-validation-for="CourseFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeDeleted" class="control-label"></label>
+                <input asp-for="TimeDeleted" class="form-control" />
+                <span asp-validation-for="TimeDeleted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoursesWeOfferId" class="control-label"></label>
+                <select asp-for="CoursesWeOfferId" class="form-control" asp-items="ViewBag.CoursesWeOfferId"></select>
+                <span asp-validation-for="CoursesWeOfferId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
