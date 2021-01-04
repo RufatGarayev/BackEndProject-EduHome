@@ -12,8 +12,8 @@ namespace EduHome.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<AppUser> _userManager;    //Burada create, update, delete kimi sheyleri UserManager<AppUser> vasitesile edirik 
-        private readonly SignInManager<AppUser> _signInManager;    //Register olmaq, Log in, Log out etmek uchun SignInManager ist olunur.
+        private readonly UserManager<AppUser> _userManager;  
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager; 
         public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
@@ -103,12 +103,12 @@ namespace EduHome.Controllers
 
 
         #region Create User Role
-        //public async Task CreateUserRole()                                                            //Admin panelde role yaratmagi admine vermek istesek bu kodlar vasitesile edirik.
+        //public async Task CreateUserRole()                                                   
         //{
-            //if (!(await _roleManager.RoleExistsAsync("Admin")))                                       //db - da ikinci defe yaratmamasi uchun. 
-            //    await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
-            //if (!(await _roleManager.RoleExistsAsync("Member")))
-            //    await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
+        //    if (!(await _roleManager.RoleExistsAsync("Admin")))                                
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
+        //    if (!(await _roleManager.RoleExistsAsync("Member")))
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
         //}
         #endregion
     }

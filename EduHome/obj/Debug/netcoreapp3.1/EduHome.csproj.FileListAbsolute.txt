@@ -268,3 +268,8 @@ C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CourseFeatures\Details.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CourseFeatures\Edit.cshtml.g.cs
 C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CourseFeatures\Index.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Speakers\Create.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Speakers\Delete.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Speakers\Details.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Speakers\Edit.cshtml.g.cs
+C:\Users\ASUS\Desktop\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Speakers\Index.cshtml.g.cs

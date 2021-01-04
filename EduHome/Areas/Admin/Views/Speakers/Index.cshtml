@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EduHome.Models.SectionDescription>
+﻿@model IEnumerable<EduHome.Models.Speaker>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,17 +6,22 @@
 
 <h2 style="margin-bottom:50px">Index</h2>
 
+<h4 style="margin-bottom:40px">Speakers</h4>
+
 <p>
-    <a class="btn btn-success" style="margin-bottom:30px" asp-controller="SectionDescriptions" asp-action="Create">Create</a>
+    <a class="btn btn-success" style="margin-bottom:30px" asp-controller="Students" asp-action="Create">Create</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsDeleted)
@@ -34,10 +39,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td style="width:300px">
-                    @Html.DisplayFor(modelItem => item.Description)
+                <td>
+                    <img src="~/img/event/@item.Image" style="width:70px!important; height:70px!important;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IsDeleted)

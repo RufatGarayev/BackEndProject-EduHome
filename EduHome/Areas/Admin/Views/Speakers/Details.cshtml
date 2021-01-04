@@ -1,0 +1,47 @@
+﻿@model EduHome.Models.Speaker
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 style="margin-bottom:20px">Details</h2>
+
+<div>
+    <h4>Speaker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            <img src="~/img/event/@Model.Image" style="width:100px!important; height:90px!important;" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeDeleted)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-secondary" style="margin-top:20px" asp-action="Index">Back to List</a>
+</div>

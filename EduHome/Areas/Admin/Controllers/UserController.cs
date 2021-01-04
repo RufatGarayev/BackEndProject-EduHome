@@ -13,7 +13,7 @@ namespace EduHome.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class UserController : Controller 
+    public class UserController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
         public UserController(UserManager<AppUser> userManager)
@@ -22,8 +22,8 @@ namespace EduHome.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<AppUser> users = _userManager.Users.ToList(); 
-            List<UserVM> usersVM = new List<UserVM>();             
+            List<AppUser> users = _userManager.Users.ToList();
+            List<UserVM> usersVM = new List<UserVM>();
             foreach (AppUser user in users)
             {
                 UserVM userVM = new UserVM
@@ -38,7 +38,7 @@ namespace EduHome.Controllers
                 usersVM.Add(userVM);
             }
 
-            //return Json(usersVM); 
+            //return Json(usersVM);
             return View(usersVM);
         }
 
@@ -76,14 +76,14 @@ namespace EduHome.Controllers
             if (id == null) return NotFound();
             AppUser user = await _userManager.FindByIdAsync(id);
             if (user == null) return NotFound();
-            if (user.UserName==User.Identity.Name)
+            if (user.UserName == User.Identity.Name)
             {
                 return Content("............");
             }
             UserVM userVM = await getUserVM(user);
             return View(userVM);
         }
-    
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeRole(string id, string role)
@@ -113,13 +113,13 @@ namespace EduHome.Controllers
                 return View(userVM);
             }
 
-            //await _userManager.AddToRoleAsync(user, role);
+            await _userManager.AddToRoleAsync(user, role);
             return RedirectToAction(nameof(Index));
         }
 
 
         //-----ResetPassword-----//
-        public  IActionResult ResetPassword(string id)
+        public IActionResult ResetPassword(string id)
         {
             return View();
         }
