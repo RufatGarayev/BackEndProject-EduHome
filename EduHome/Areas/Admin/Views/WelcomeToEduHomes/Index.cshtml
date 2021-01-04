@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EduHome.Models.ChooseEduHome>
+﻿@model IEnumerable<EduHome.Models.WelcomeToEduHome>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,11 +7,14 @@
 <h2 style="margin-bottom:50px">Index</h2>
 
 <p>
-    <a class="btn btn-success" style="margin-bottom:30px" asp-controller="ChooseEduHomes" asp-action="Create">Create</a>
+    <a class="btn btn-success" style="margin-bottom:30px" asp-controller="WelcomeToEduHomes" asp-action="Create">Create</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -34,7 +37,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
+                    <img src="~/img/about/@item.Image" style="width:80px; height:80px;" />
+                </td>
+                <td>
+                    @Html.Raw(item.Title)
                 </td>
                 <td style="width:450px">
                     @Html.Raw(item.Description)

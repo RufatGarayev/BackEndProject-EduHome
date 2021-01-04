@@ -1,0 +1,86 @@
+﻿@model IEnumerable<EduHome.Models.OurTeacher>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="margin-bottom:50px">Index</h2>
+
+<p>
+    <a class="btn btn-success" style="margin-bottom:30px" asp-controller="OurTeachers" asp-action="Create">Create</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facebook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pinterest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vimeo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Twitter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeDeleted)
+            </th>
+            <th>
+                Settings
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <img src="~/img/teacher/@item.Image" style="width:70px!important; height:70px!important;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facebook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pinterest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vimeo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Twitter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeDeleted)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary"><i class="mdi mdi-information"></i></a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-update"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
