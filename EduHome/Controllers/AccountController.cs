@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EduHome.DAL;
 using EduHome.Extensions;
 using EduHome.Models;
 using EduHome.ViewModels;
@@ -15,19 +16,24 @@ namespace EduHome.Controllers
         private readonly UserManager<AppUser> _userManager;  
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager; 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        private readonly AppDbContext _context; 
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, AppDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _context = context;
         }
 
-        //-----Log In-----
+        #region Login
+        //----- Log In-Get -----//
         public IActionResult Login()
         {
             return View();
         }
 
+
+        //----- Log In-Post -----//
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginVM login)
@@ -60,13 +66,17 @@ namespace EduHome.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        #endregion
 
-        //-----Register-----
+
+        #region Register
+        //----- Register-Get -----//
         public IActionResult Register()
         {
             return View();
         }
 
+        //----- Register-Post -----//
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterVM register)
@@ -74,9 +84,9 @@ namespace EduHome.Controllers
             if (!ModelState.IsValid) return View();
             AppUser newUser = new AppUser
             {
-                Fullname=register.Fullname,
-                UserName=register.Username,
-                Email=register.Email
+                Fullname = register.Fullname,
+                UserName = register.Username,
+                Email = register.Email
             };
 
             IdentityResult identityResult = await _userManager.CreateAsync(newUser, register.Password);
@@ -88,18 +98,21 @@ namespace EduHome.Controllers
                 }
                 return View();
             }
-                                                                //Member
-            await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());    //yeni user-e member rolu vermek uchun
-            await _signInManager.SignInAsync(newUser, true);                        //register olduq avtomatik sign olsun
+
+            await _userManager.AddToRoleAsync(newUser, Roles.Admin.ToString());
+            await _signInManager.SignInAsync(newUser, true);
             return RedirectToAction("Index", "Home");
         }
+        #endregion
 
-        //-----Log Out-----
+
+        #region LogOut
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();          //Logout ede bilmek uchun
+            await _signInManager.SignOutAsync();  
             return RedirectToAction("Index", "Home");
         }
+        #endregion
 
 
         #region Create User Role
@@ -110,6 +123,38 @@ namespace EduHome.Controllers
         //    if (!(await _roleManager.RoleExistsAsync("Member")))
         //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
         //}
+        #endregion
+
+
+        #region Subscribe
+        //-----Subscribe-----//
+        public IActionResult Subscribe()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Subscribe(Subscribe subscribe)
+        {
+            if (ModelState.IsValid)
+            {
+                Subscribe subscribed = new Subscribe();
+                subscribed.Email = subscribe.Email.Trim().ToLower();
+                bool isExist = _context.Subscribes.Any(e => e.Email.Trim().ToLower() == subscribe.Email.Trim().ToLower());
+
+                if (isExist)
+                {
+                    ModelState.AddModelError("", "This email already subscribed");
+                }
+                else
+                {
+                    await _context.Subscribes.AddAsync(subscribe);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            return RedirectToAction("Index","Home");
+        }
         #endregion
     }
 }

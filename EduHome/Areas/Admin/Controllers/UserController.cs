@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EduHome.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -108,7 +108,7 @@ namespace EduHome.Controllers
             IdentityResult removeResult = await _userManager.RemoveFromRoleAsync(user, oldRole);
             if (!removeResult.Succeeded)
             {
-                ModelState.AddModelError("", "Some problem exist");
+                ModelState.AddModelError("", "Some problem is exist");
                 UserVM userVM = await getUserVM(user);
                 return View(userVM);
             }

@@ -44,6 +44,7 @@ namespace EduHome.DAL
         public DbSet<TeacherSkillSkill> TeacherSkillSkills { get; set; }
         public DbSet<WorkShopSpeaker> WorkShopSpeakers { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
 
 
 

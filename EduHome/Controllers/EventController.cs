@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using EduHome.DAL;
 using EduHome.ViewModels;
@@ -29,9 +31,9 @@ namespace EduHome.Controllers
         {
             EventDetailsVM eventDetailsVM = new EventDetailsVM
             {
-                WorkShops = _context.WorkShops.Where(ws => ws.IsDeleted == false && ws.EventId==id)
+                WorkShops = _context.WorkShops.Where(ws => ws.IsDeleted == false && ws.EventId == id)
                 .Include(ws => ws.Event).ToList(),
-                Events = _context.Events.Where(e => e.IsDeleted == false && e.Id==id).Include(e => e.WorkShop).ToList(),
+                Events = _context.Events.Where(e => e.IsDeleted == false && e.Id == id).Include(e => e.WorkShop).ToList(),
 
                 Speakers = _context.Speakers.Where(s => s.IsDeleted == false).ToList(),
                 BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
@@ -45,10 +47,11 @@ namespace EduHome.Controllers
 
                 BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.LatestFromBlogId == id)
                 .Include(bd => bd.LatestFromBlog).ToList(),
-                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id==id)
+                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id == id)
                 .Include(lfb => lfb.BlogDetail).ToList(),
             };
             return View(eventDetailsVM);
         }
+
     }
 }

@@ -44,8 +44,13 @@
                             </ul>
                             <div class="search">
                                 <div class="search-form">
-                                    <form id="search-form" action="#">
-                                        <input type="search" placeholder="Search here..." name="search" />
+                                    @*<div class="text-center" asp-validation-summary="ModelOnly"></div>*@
+                                    <form id="search-form" method="post">
+                                        <input type="search" id="search-input" placeholder="Search here..." name="search" />
+                                        <ul id="search-list">
+                                            
+                                        </ul>
+
                                         <button type="submit">
                                             <span><i class="fa fa-search"></i></span>
                                         </button>
