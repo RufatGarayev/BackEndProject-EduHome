@@ -153,38 +153,38 @@ namespace EduHome.Areas.Admin.Controllers
             return _context.Events.Any(e => e.Id == id);
         }
 
+        //--- SendEmail ---//
+        public void SendEmail(string email, string subject, string htmlMessage)
+        {
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential()
+                {
+                    UserName = "rufatg7@gmail.com",
+                    Password = "rufat1234567"
+                }
+            };
+            MailAddress fromEmail = new MailAddress("rufatg7@gmail.com", "Rufat");
+            MailAddress toEmail = new MailAddress("email", "Rufat");
+            MailMessage message = new MailMessage()
+            {
+                From = fromEmail,
+                Subject = subject,
+                Body = htmlMessage
+            };
+            message.To.Add(toEmail);
+            client.Send(message);
+        }
 
-        //public void SendEmail(string email, string subject, string htmlMessage)
-        //{
-        //    System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
-        //    {
-        //        Host = "smtp.gmail.com",
-        //        Port = 587,
-        //        EnableSsl = true,
-        //        DeliveryMethod = SmtpDeliveryMethod.Network,
-        //        UseDefaultCredentials = false,
-        //        Credentials = new NetworkCredential()
-        //        {
-        //            UserName = "rufatg7@gmail.com",
-        //            Password = "rufat1234567"
-        //        }
-        //    };
-        //    MailAddress fromEmail = new MailAddress("rufatg7@gmail.com", "Rufat");
-        //    MailAddress toEmail = new MailAddress("email", "Rufat");
-        //    MailMessage message = new MailMessage()
-        //    {
-        //        From = fromEmail,
-        //        Subject = subject,
-        //        Body = htmlMessage
-        //    };
-        //    message.To.Add(toEmail);
-        //    client.Send(message);
-        //}
-
-        //List<Subscribe> emails = _context.Subscribes.Where(e => e.isDeleted == false).ToList();
-        //foreach(Subscribe email in emails)
-        //{
-        //    SendEmail(email.Email, "New event created", "<h1>New event created</h1>");
-        //}
+    //    List<Subscribe> emails = _context.Subscribes.Where(e => e.isDeleted == false).ToList();
+    //    foreach(Subscribe email in emails)
+    //    {
+    //        SendEmail(email.Email, "New event created", "<h1>New event created</h1>");
+    //}
 }
 }

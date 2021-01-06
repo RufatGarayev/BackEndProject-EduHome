@@ -29,19 +29,18 @@ namespace EduHome.Areas.Admin.Controllers
 
 
         #region Create
-        //Create - Get method
+        //--- Create - Get method ---//
         public IActionResult Create()
         {
             return View();
         }
 
-        //Create - Post method
+        //--- Create - Post method ---//
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CoursesWeOffer course)
         {
             //-- Photo --//
-
             if (course.Photo == null)
             {
                 ModelState.AddModelError("Photo", "Please insert a photo");
@@ -63,13 +62,12 @@ namespace EduHome.Areas.Admin.Controllers
             string fileName = Guid.NewGuid().ToString() + course.Photo.FileName;
             string path = Path.Combine(_env.WebRootPath, "img", "course", fileName);
 
-            //--FileStream--
+            
             FileStream fileStream = new FileStream(path, FileMode.Create);
             await course.Photo.CopyToAsync(fileStream);
 
 
             //-- Text --//
-
             if (!ModelState.IsValid) return NotFound(course);
 
             bool isExist = _context.CoursesWeOffers.Where(c => c.IsDeleted == false)
@@ -89,7 +87,6 @@ namespace EduHome.Areas.Admin.Controllers
 
 
         #region Detail
-        //---Detail---//
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return NotFound();
@@ -125,14 +122,6 @@ namespace EduHome.Areas.Admin.Controllers
 
             _context.CoursesWeOffers.Remove(course);
             await _context.SaveChangesAsync();
-
-            //course.IsDeleted = true;
-            //course.DeletedTime = DateTime.Now;
-            //foreach (CourseFeature cf in course.CourseFeatures)
-            //{
-            //    cf.DeletedTime = DateTime.Now;
-            //    cf.IsDeleted = true;
-            //}
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

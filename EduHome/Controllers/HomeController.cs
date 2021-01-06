@@ -27,31 +27,19 @@ namespace EduHome.Controllers
                 Sliders = _context.Sliders.Where(s => s.IsDeleted == false).ToList(),
                 NoticeBoards = _context.NoticeBoards.Where(nb => nb.IsDeleted == false).ToList(),
                 SectionDescriptions = _context.SectionDescriptions.Where(sd => sd.IsDeleted == false).ToList(),
-
                 ChooseEduHome = _context.ChooseEduHomes.Where(ceh => ceh.IsDeleted == false)
                 .FirstOrDefault(),
                 CourseFeatures = _context.CourseFeatures.Where(cf => cf.IsDeleted==false && cf.CoursesWeOfferId==id)
                 .Include(cf => cf.CoursesWeOffer).ToList(),
-
                 CoursesWeOffers = _context.CoursesWeOffers.Where(cwo => cwo.IsDeleted == false).Take(3).ToList(),
-
                 WorkShops = _context.WorkShops.Where(ws => ws.IsDeleted == false && ws.EventId==id)
                 .Include(ws => ws.Event).ToList(),
                 Events = _context.Events.Where(e => e.IsDeleted == false).Take(8).ToList(),
-
                 Students = _context.Students.Where(stu => stu.IsDeleted == false).ToList(),
                 LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).Take(3).ToList()
             };
             return View(homeVM);
         }
-
-
-
-        //public IActionResult Search(string search)
-        //{
-        //    IEnumerable<Student> model = _context.Students.Where(h => h.Name.Contains(search)).OrderByDescending(h => h.Id);
-        //    return PartialView("_SearchPartial", model);
-        //}
 
 
         public IActionResult Privacy()

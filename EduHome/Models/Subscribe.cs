@@ -9,9 +9,7 @@ namespace EduHome.Models
     public class Subscribe
     {
         public int Id { get; set; }
-        [Required,EmailAddress, DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-        public bool IsDeleted { get; set; }
-        public DateTime? TimeDeleted { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
     }
 }

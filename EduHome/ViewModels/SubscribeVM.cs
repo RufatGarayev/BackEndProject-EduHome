@@ -9,5 +9,6 @@ namespace EduHome.ViewModels
     public class SubscribeVM
     {
         public Subscribe Subscribe { get; set; }
+        public SubscribedEmail SubscribedEmail { get; set; }
     }
 }

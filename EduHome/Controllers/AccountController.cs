@@ -51,14 +51,14 @@ namespace EduHome.Controllers
             }
 
             Microsoft.AspNetCore.Identity.SignInResult signInResult = 
-            await _signInManager.PasswordSignInAsync(user, login.Password, true, true);    //user password-nu yadda saxlamaq uchun
+            await _signInManager.PasswordSignInAsync(user, login.Password, true, true); 
             if (signInResult.IsLockedOut)
             {
                 ModelState.AddModelError("", "Please try few minutes later");
                 return View(login);
             }
 
-            if (!signInResult.Succeeded)     //password'un sehv olub-olmamasini yoxlamaq uchun                       
+            if (!signInResult.Succeeded)                  
             {
                 ModelState.AddModelError("", "Email or password is wrong.");
                 return View();
@@ -127,7 +127,6 @@ namespace EduHome.Controllers
 
 
         #region Subscribe
-        //-----Subscribe-----//
         public IActionResult Subscribe()
         {
             return View();
@@ -135,13 +134,13 @@ namespace EduHome.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Subscribe(Subscribe subscribe)
+        public async Task<IActionResult> Subscribe(SubscribedEmail subscribedEmail)
         {
             if (ModelState.IsValid)
             {
-                Subscribe subscribed = new Subscribe();
-                subscribed.Email = subscribe.Email.Trim().ToLower();
-                bool isExist = _context.Subscribes.Any(e => e.Email.Trim().ToLower() == subscribe.Email.Trim().ToLower());
+                SubscribedEmail subscribed = new SubscribedEmail();
+                subscribed.Email = subscribedEmail.Email.Trim().ToLower();
+                bool isExist = _context.SubscribedEmails.Any(e => e.Email.Trim().ToLower() == subscribedEmail.Email.Trim().ToLower());
 
                 if (isExist)
                 {
@@ -149,11 +148,11 @@ namespace EduHome.Controllers
                 }
                 else
                 {
-                    await _context.Subscribes.AddAsync(subscribe);
+                    await _context.SubscribedEmails.AddAsync(subscribed);
                     await _context.SaveChangesAsync();
                 }
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
         #endregion
     }

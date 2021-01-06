@@ -35,15 +35,10 @@ namespace EduHome.Controllers
                 .Include(cf => cf.CoursesWeOffer).ToList(),
                 CoursesWeOffers = _context.CoursesWeOffers.Where(cwo => cwo.IsDeleted == false && cwo.Id == id)
                 .Include(cwo => cwo.CourseFeature).ToList(),
-
                 Posts = _context.Posts.Where(p => p.IsDeleted == false).ToList(),
-
                 BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.LatestFromBlogId == id)
                 .Include(bd => bd.LatestFromBlog).ToList(),
                 LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).ToList(),
-
-                //Explainings = _context.Explainings.Where(ex => ex.IsDeleted == false).ToList(),
-
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
                 BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
@@ -52,7 +47,6 @@ namespace EduHome.Controllers
             return View(coursesDetailsVM);
         }
 
-        
         public IActionResult Search(string search)
         {
             IEnumerable<CoursesWeOffer> model = _context.CoursesWeOffers.Where(h => h.Name.Contains(search)).OrderByDescending(h => h.Id).Take(4);
