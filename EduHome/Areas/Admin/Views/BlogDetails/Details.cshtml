@@ -1,0 +1,41 @@
+﻿@model EduHome.Models.BlogDetail
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 style="margin-bottom:20px">Details</h2>
+
+<div>
+    <h4>BlogDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd style="width:700px;">
+            @Html.Raw(Model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LatestFromBlogId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LatestFromBlog.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-secondary" style="margin-top:20px" asp-action="Index">Back to List</a>
+</div>
