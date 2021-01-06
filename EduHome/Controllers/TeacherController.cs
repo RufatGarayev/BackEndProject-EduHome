@@ -40,5 +40,11 @@ namespace EduHome.Controllers
             
             return View(teacherDetailsVM);
         }
+
+        //public IActionResult Search(string search)
+        //{
+        //    IEnumerable<> model = _context.CoursesWeOffers.Where(h => h.Name.Contains(search)).OrderByDescending(h => h.Id).Take(4);
+        //    return PartialView("_SearchPartial", model);
+        //}
     }
 }
