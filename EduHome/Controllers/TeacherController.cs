@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EduHome.DAL;
+using EduHome.Models;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,10 +42,10 @@ namespace EduHome.Controllers
             return View(teacherDetailsVM);
         }
 
-        //public IActionResult Search(string search)
-        //{
-        //    IEnumerable<> model = _context.CoursesWeOffers.Where(h => h.Name.Contains(search)).OrderByDescending(h => h.Id).Take(4);
-        //    return PartialView("_SearchPartial", model);
-        //}
+        public IActionResult Search(string search)
+        {
+            IEnumerable<OurTeacher> model = _context.OurTeachers.Where(t => t.Name.Contains(search)).OrderByDescending(t => t.Id).Take(4);
+            return PartialView("_TeacherSearchPartial", model);
+        }
     }
 }

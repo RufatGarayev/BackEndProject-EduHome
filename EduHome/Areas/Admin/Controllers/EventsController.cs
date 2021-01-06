@@ -65,6 +65,13 @@ namespace EduHome.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            List<SubscribedEmail> emails = _context.SubscribedEmails.Where(e => e.IsDeleted == false).ToList();
+            foreach (SubscribedEmail email in emails)
+            {
+                SendEmail(email.Email, "New event created", "<h1>New event created</h1>");
+            }
+
             return View(@event);
         }
 
@@ -153,6 +160,8 @@ namespace EduHome.Areas.Admin.Controllers
             return _context.Events.Any(e => e.Id == id);
         }
 
+
+
         //--- SendEmail ---//
         public void SendEmail(string email, string subject, string htmlMessage)
         {
@@ -181,10 +190,5 @@ namespace EduHome.Areas.Admin.Controllers
             client.Send(message);
         }
 
-    //    List<Subscribe> emails = _context.Subscribes.Where(e => e.isDeleted == false).ToList();
-    //    foreach(Subscribe email in emails)
-    //    {
-    //        SendEmail(email.Email, "New event created", "<h1>New event created</h1>");
-    //}
 }
 }

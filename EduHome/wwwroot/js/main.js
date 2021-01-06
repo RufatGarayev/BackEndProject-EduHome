@@ -147,6 +147,30 @@ $(document).ready(function () {
                     $("#search-list").append(res);
                 }
             });
+
+            $.ajax({
+                url: "/Blog/Search?search=" + searchInput,
+                type: "Get",
+                success: function (res) {
+                    $("#search-list").append(res);
+                }
+            });
+
+            $.ajax({
+                url: "/Event/Search?search=" + searchInput,
+                type: "Get",
+                success: function (res) {
+                    $("#search-list").append(res);
+                }
+            });
+
+            $.ajax({
+                url: "/Teacher/Search?search=" + searchInput,
+                type: "Get",
+                success: function (res) {
+                    $("#search-list").append(res);
+                }
+            });
         }
     })
 

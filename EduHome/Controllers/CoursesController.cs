@@ -50,7 +50,7 @@ namespace EduHome.Controllers
         public IActionResult Search(string search)
         {
             IEnumerable<CoursesWeOffer> model = _context.CoursesWeOffers.Where(c => c.Name.Contains(search)).OrderByDescending(c => c.Id).Take(4);
-            return PartialView("_SearchPartial", model);
+            return PartialView("_CourseSearchPartial", model);
         }
     }
 }

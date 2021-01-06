@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EduHome.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -20,6 +20,8 @@ namespace EduHome.Controllers
         {
             _userManager = userManager;
         }
+
+        #region Index
         public async Task<IActionResult> Index()
         {
             List<AppUser> users = _userManager.Users.ToList();
@@ -41,9 +43,10 @@ namespace EduHome.Controllers
             //return Json(usersVM);
             return View(usersVM);
         }
+        #endregion
 
 
-        //-----ChangeStatus-----//     
+        #region ChangeStatus  
         public async Task<IActionResult> ChangeStatus(string id)
         {
             if (id == null) return NotFound();
@@ -68,9 +71,10 @@ namespace EduHome.Controllers
             await _userManager.UpdateAsync(user);
             return RedirectToAction(nameof(Index));
         }
+        #endregion
 
 
-        //-----ChangeRole-----//
+        #region ChangeRole
         public async Task<IActionResult> ChangeRole(string id)
         {
             if (id == null) return NotFound();
@@ -116,9 +120,10 @@ namespace EduHome.Controllers
             await _userManager.AddToRoleAsync(user, role);
             return RedirectToAction(nameof(Index));
         }
+        #endregion
 
 
-        //-----ResetPassword-----//
+        #region ResetPassword
         public IActionResult ResetPassword(string id)
         {
             return View();
@@ -139,9 +144,10 @@ namespace EduHome.Controllers
             await _userManager.ResetPasswordAsync(user, passwordToken, reg.Password);
             return RedirectToAction(nameof(Index));
         }
+        #endregion
 
 
-        //-----getUserVM-----//
+        #region GetUserVM
         private async Task<UserVM> getUserVM(AppUser user)
         {
             List<string> roles = new List<string>();
@@ -161,5 +167,6 @@ namespace EduHome.Controllers
             };
             return userVM;
         }
+        #endregion
     }
 }

@@ -1,0 +1,6 @@
+﻿@model IEnumerable<LatestFromBlog>
+
+@foreach (LatestFromBlog blogs in Model)
+{
+    <li><a href="Courses/Details/@blogs.Id">@blogs.Description</a></li>
+}

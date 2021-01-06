@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using EduHome.DAL;
+using EduHome.Models;
 using EduHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -46,5 +47,11 @@ namespace EduHome.Controllers
             return View(eventDetailsVM);
         }
 
+
+        public IActionResult Search(string search)
+        {
+            IEnumerable<Event> model = _context.Events.Where(e => e.Title.Contains(search)).OrderByDescending(e => e.Id).Take(4);
+            return PartialView("_EventSearchPartial", model);
+        }
     }
 }

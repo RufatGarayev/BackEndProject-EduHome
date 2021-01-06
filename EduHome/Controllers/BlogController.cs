@@ -28,7 +28,7 @@ namespace EduHome.Controllers
                 List<LatestFromBlog> latestFromBlog = _context.LatestFromBlogs.Where(b => b.IsDeleted == false).Take(3).ToList();
                 return View(latestFromBlog);
             }
-            List<LatestFromBlog> LatestFromBlog = _context.LatestFromBlogs.Where(b => b.IsDeleted == false).Skip(((int)page-1) * 4).Take(3).ToList();
+            List<LatestFromBlog> LatestFromBlog = _context.LatestFromBlogs.Where(b => b.IsDeleted == false).Skip(((int)page-1) * 3).Take(3).ToList();
             return View(LatestFromBlog);
         }
 
@@ -45,6 +45,12 @@ namespace EduHome.Controllers
                 .Include(lfb => lfb.BlogDetail).Take(3).ToList(),
             };
             return View(blogDetailsVM);
+        }
+
+        public IActionResult Search(string search)
+        {
+            IEnumerable<LatestFromBlog> model = _context.LatestFromBlogs.Where(b => b.Description.Contains(search)).OrderByDescending(b => b.Id).Take(4);
+            return PartialView("_BlogSearchPartial", model);
         }
     }
 }
