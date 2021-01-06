@@ -1,0 +1,41 @@
+﻿@model EduHome.Models.BlogBanner
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 style="margin-bottom:20px">Details</h2>
+
+<div>
+    <h4>BlogBanner</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            <img src="~/img/blog/@Model.Image" style="width:210px!important; height:170px!important;" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeDeleted)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-secondary" style="margin-top:20px" asp-action="Index">Back to List</a>
+</div>

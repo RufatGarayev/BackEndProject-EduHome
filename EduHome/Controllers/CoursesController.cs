@@ -40,7 +40,7 @@ namespace EduHome.Controllers
                 .Include(bd => bd.LatestFromBlog).ToList(),
                 LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).ToList(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
-                BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
+                BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
                 LeaveMessage = _context.LeaveMessages.FirstOrDefault(),
             };

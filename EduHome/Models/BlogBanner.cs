@@ -14,6 +14,5 @@ namespace EduHome.Models
         public string Image { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? TimeDeleted { get; set; }
-        public BlogDetail BlogDetail { get; set; }
     }
 }

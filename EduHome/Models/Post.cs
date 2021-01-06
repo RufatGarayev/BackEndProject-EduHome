@@ -20,8 +20,5 @@ namespace EduHome.Models
         [ForeignKey("WorkShop")]
         public int WorkSopId { get; set; }
         public WorkShop WorkShop { get; set; }
-        [ForeignKey("Explaining")]
-        public int ExplainingId { get; set; }
-        public Explaining Explaining { get; set; }
     }
 }

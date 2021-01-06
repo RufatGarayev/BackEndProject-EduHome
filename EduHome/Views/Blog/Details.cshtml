@@ -55,12 +55,9 @@
                             <img src="~/img/blog/@blog.Image" style="width:760px;" alt="blog-details">
                         </div>
                         <div class="blog-details-content">
-                            <h2>I MUST EXPLAIN TO YOU HOW ALL THIS A MISTAKEN IDEA</h2>
-                            <h6>@blog.Composer  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</h6>
-                            <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human haness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque sa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam volutatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui </p>
-                            <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human haness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
-                            <p class="quote">I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human haness pcias unde omnis iste natus error sit voluptatem accusantium doloremque la udantium, totam rem aperiam</p>
-                            <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human haness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque sa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo emo enim ipsam</p>
+                            <h2>@blog.Description</h2>
+                            <h6>@blog.Composer  /  @blog.Date/  <i class="fa fa-comments-o"></i> 4</h6>
+                            @Html.Raw(blog.BlogDetail.Description)
                         </div>
                     }
 
@@ -115,30 +112,12 @@
                     </div>
                     <div class="single-blog-widget mb-50">
                         <div class="single-blog-banner">
-                            <a asp-controller="Blog" asp-action="Details" id="blog"><img src="~/img/blog/@Model.BlogBanners.ElementAt(0).Image" alt="blog"></a>
-                            @Html.Raw(Model.BlogBanners.ElementAt(0).Title)
+                            <a asp-controller="Blog" asp-action="Details" id="blog"><img src="~/img/blog/@Model.BlogBanner.Image" alt="blog"></a>
+                            @Html.Raw(Model.BlogBanner.Title)
                         </div>
                     </div>
                     <div class="single-blog-widget mb-50" style="display:flex!important; flex-direction:column!important;">
                         <h3>latest post</h3>
-                        @*@foreach (Post post in Model.Posts)
-                        {
-                            <div class="single-post mb-30">
-                                <div class="single-post-img">
-                                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id">
-                                        <img src="~/img/post/@post.Image" alt="post">
-                                        <div class="blog-hover">
-                                            <i class="fa fa-link"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-post-content">
-                                    <h4><a asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id">@post.Description</a></h4>
-                                    <p>@post.Composer  /  June 20, 2017</p>
-                                </div>
-                            </div>
-                        }*@
-
                         @foreach (LatestFromBlog post in Model.LatestFromBlogs.Take(3))
                         {
                             <div class="single-post mb-30">

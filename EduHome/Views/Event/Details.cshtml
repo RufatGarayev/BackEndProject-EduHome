@@ -138,8 +138,8 @@
                     </div>
                     <div class="single-blog-widget mb-50">
                         <div class="single-blog-banner">
-                            <a asp-controller="Blog" asp-action="Details" id="blog"><img src="~/img/blog/@Model.BlogBanners.ElementAt(0).Image" alt="blog"></a>
-                            @Html.Raw(Model.BlogBanners.ElementAt(0).Title)
+                            <a asp-controller="Blog" asp-action="Details" id="blog"><img src="~/img/blog/@Model.BlogBanner.Image" alt="blog"></a>
+                            @Html.Raw(Model.BlogBanner.Title)
                         </div>
                     </div>
                     <div class="single-blog-widget mb-50">

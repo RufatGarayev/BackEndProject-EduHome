@@ -35,7 +35,6 @@ namespace EduHome.DAL
         public DbSet<Tag> Tags { get; set; }
         public DbSet<WorkShop> WorkShops { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
-        public DbSet<Explaining> Explainings { get; set; }
         public DbSet<TeacherBasicInfo> TeacherBasicInfos { get; set; }
         public DbSet<TeacherContactInfo> TeacherContactInfos { get; set; }
         public DbSet<TeacherSkill> TeacherSkills { get; set; }
@@ -53,5 +52,6 @@ namespace EduHome.DAL
 
         //public DbSet<Address> Addresses { get; set; }
         //public DbSet<CoursesText> CoursesTexts { get; set; }
+        //public DbSet<Explaining> Explainings { get; set; }
     }
 }

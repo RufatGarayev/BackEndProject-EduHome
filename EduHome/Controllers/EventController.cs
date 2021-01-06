@@ -35,7 +35,7 @@ namespace EduHome.Controllers
                 .Include(ws => ws.Event).ToList(),
                 Events = _context.Events.Where(e => e.IsDeleted == false && e.Id == id).Include(e => e.WorkShop).ToList(),
                 Speakers = _context.Speakers.Where(s => s.IsDeleted == false).ToList(),
-                BlogBanners = _context.BlogBanners.Where(bb => bb.IsDeleted == false).ToList(),
+                BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),
                 Categories = _context.Categories.Where(ctg => ctg.IsDeleted == false).ToList(),
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
                 BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.LatestFromBlogId == id)

@@ -4,14 +4,16 @@ using EduHome.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EduHome.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210106061717_BlogBannerUpdated")]
+    partial class BlogBannerUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -411,6 +413,40 @@ namespace EduHome.Migrations
                     b.ToTable("Events");
                 });
 
+            modelBuilder.Entity("EduHome.Models.Explaining", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Composer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("TimeDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Explainings");
+                });
+
             modelBuilder.Entity("EduHome.Models.LatestFromBlog", b =>
                 {
                     b.Property<int>("Id")
@@ -581,6 +617,9 @@ namespace EduHome.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ExplainingId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -595,6 +634,9 @@ namespace EduHome.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ExplainingId")
+                        .IsUnique();
 
                     b.HasIndex("WorkSopId")
                         .IsUnique();
@@ -1227,6 +1269,12 @@ namespace EduHome.Migrations
 
             modelBuilder.Entity("EduHome.Models.Post", b =>
                 {
+                    b.HasOne("EduHome.Models.Explaining", "Explaining")
+                        .WithOne("Post")
+                        .HasForeignKey("EduHome.Models.Post", "ExplainingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EduHome.Models.WorkShop", "WorkShop")
                         .WithOne("Post")
                         .HasForeignKey("EduHome.Models.Post", "WorkSopId")
