@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h2 style="margin-bottom:50px">Index</h2>
+
+<h4 style="margin-bottom:30px">Blogs</h4>
 
 <p>
     <a class="btn btn-success" style="margin-bottom:30px" asp-controller="LatestFromBlogs" asp-action="Create">Create</a>
@@ -40,7 +41,7 @@
         {
         <tr>
             <td>
-                <img src="~/img/blog/@item.Image" style="width:70px!important; height:70px!important;" />
+                <img src="~/img/blog/@item.Image" style="width:95px!important; height:92px!important;" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Composer)
