@@ -2858,3 +2858,10 @@ textarea {
     border: 1px solid #EC1C23;
     color: #fff;
 }
+
+
+#searchList li {
+    background-color: white !important;
+    padding: 8px !important;
+    text-align: left !important;
+}

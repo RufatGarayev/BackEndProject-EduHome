@@ -22,6 +22,8 @@ namespace EduHome.Controllers
 
         public IActionResult Index(int? id)
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             HomeVM homeVM = new HomeVM
             {
                 Sliders = _context.Sliders.Where(s => s.IsDeleted == false).ToList(),

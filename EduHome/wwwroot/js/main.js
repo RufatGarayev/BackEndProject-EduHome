@@ -1,6 +1,40 @@
 (function ($) {
-"use strict";  
+    "use strict"; 
     
+    const SearchAjax = (searchAreaClassName) => {
+        let controllerName = searchAreaClassName.substring(13, searchAreaClassName.length);
+        let searchInput = $(`${searchAreaClassName} #search`);
+        $(document).on('keyup', searchInput, function () {
+            let search = $(searchInput).val().trim();
+            let responseArea = $(searchAreaClassName).next();
+            responseArea.children('li').slice(0).remove();
+            if (search.length > 0) {
+                $.ajax({
+
+                    url: `${controllerName}/Search?search=` + search,
+                    type: "Get",
+                    success: function (res) {
+                        $(responseArea).append(res);
+                    }
+                })
+            }
+        })
+    }
+    let searchBtn = $('.search-btn');
+    if (searchBtn.hasClass('Teacher')) {
+        SearchAjax('.search-form-Teacher');
+    }
+    else if (searchBtn.hasClass('Blog')) {
+        SearchAjax('.search-form-Blog');
+    }
+    else if (searchBtn.hasClass('Event')) {
+        SearchAjax('.search-form-Event');
+    }
+    else if (searchBtn.hasClass('Courses')) {
+        SearchAjax('.search-form-Courses');
+    }
+
+
 /*------------------------------------
 	Sticky Menu 
 --------------------------------------*/
@@ -130,66 +164,30 @@ $(".notice-left").niceScroll({
 })(jQuery);	
 
 
+
 /*------------------------------------
 	Search
 --------------------------------------*/
-$(document).ready(function () {
-    $(document).on('keyup', '#search-input', function () {
-
-        let searchInput = $(this).val().trim();
-        $("#search-list li").remove();
-        if (searchInput.length > 0) {
-
-            $.ajax({
-                url: "/Courses/Search?search=" + searchInput,
-                type: "Get",
-                success: function (res) {
-                    $("#search-list").append(res);
-                }
-            });
-        }
-    })
-
-    $('#search-list').on('click', 'li', function () {
-        var click_text = $(this).text().split('|');
-        $('#search-input').val($.trim(click_text[0]));
-        $("#search-list").html('');
-    });
-
-})
-
-
-
 //$(document).ready(function () {
-//    $('#search-input').keyup(function () {
-//        $('#search-list').html('');
-//        $('#state').val('');
-//        var searchField = $('#search-input').val();
+//    $(document).on('keyup', '#search-input', function () {
 
-//        $.ajax({
+//        let searchInput = $(this).val().trim();
+//        $("#search-list li").remove();
+//        if (searchInput.length > 0) {
+
+//            $.ajax({
 //                url: "/Courses/Search?search=" + searchInput,
 //                type: "Get",
 //                success: function (res) {
 //                    $("#search-list").append(res);
 //                }
 //            });
-//    });
 
-//    $('#search-list').on('click', 'li', function () {
-//        var click_text = $(this).text().split('|');
-//        $('#search-input').val($.trim(click_text[0]));
-//        $("#search-list").html('');
-//    });
-//});
+//        }
+//    })
+
+//})
 
 
 
-
-//        //$.getJSON('data.json', function (data) {
-//        //    $.each(data, function (key, value) {
-//        //        if (value.name.search(expression) != -1 || value.location.search(expression) != -1) {
-//        //            $('#search-list').append('<li class="list-group-item link-class"><img src="' + value.image + '" height="40" width="40" class="img-thumbnail" /> ' + value.name + ' | <span class="text-muted">' + value.location + '</span></li>');
-//        //        }
-//        //    });
-//        //});
 

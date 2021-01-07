@@ -18,6 +18,8 @@ namespace EduHome.Controllers
 
         public IActionResult Index()
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             ContactVM contactVM = new ContactVM
             {
                 Map = _context.Maps.Where(m => m.IsDeleted==false).FirstOrDefault(),

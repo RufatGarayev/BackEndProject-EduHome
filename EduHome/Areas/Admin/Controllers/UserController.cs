@@ -56,6 +56,7 @@ namespace EduHome.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ActionName("ChangeStatus")]
         public async Task<IActionResult> ChangeStatusPost(string id)
         {
             if (id == null) return NotFound();

@@ -10,10 +10,12 @@ using EduHome.Models;
 using System.IO;
 using EduHome.Extensions;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EduHome.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class SlidersController : Controller
     {
         private readonly AppDbContext _context;

@@ -53,7 +53,7 @@
                             </nav>
                         </div>
                         <!--Search Form Start-->
-                        <div class="search-btn">
+                        <div class="search-btn @TempData["controllerName"]">
                             <ul data-toggle="dropdown" class="header-search search-toggle">
                                 <li class="search-menu">
                                     <i class="fa fa-search"></i>
@@ -61,15 +61,15 @@
                             </ul>
                             <div class="search">
                                 <div class="search-form">
-                                    <form id="search-form">
-                                        <input type="text" id="search-input" placeholder="Search here..." name="search" />
-                                        <ul id="search-list">
-                                        </ul>
-
+                                    <form id="search-form" class="search-form-@TempData["controllerName"]">
+                                        <input placeholder="Search here..." name="search" id="search" />
                                         <button type="submit">
                                             <span><i class="fa fa-search"></i></span>
                                         </button>
+
                                     </form>
+                                    <ul id="searchList">
+                                    </ul>
                                 </div>
                             </div>
                         </div>

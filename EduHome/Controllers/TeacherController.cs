@@ -19,6 +19,8 @@ namespace EduHome.Controllers
         }
         public IActionResult Index()
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             OurTeacherVM OurTeacherVM = new OurTeacherVM
             {
                 OurTeachers = _context.OurTeachers.Where(t => t.IsDeleted == false).Take(12).ToList()
@@ -28,6 +30,8 @@ namespace EduHome.Controllers
 
         public IActionResult Details(int? id)
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             if (id == null) return NotFound();
             TeacherDetailsVM teacherDetailsVM = new TeacherDetailsVM
             {

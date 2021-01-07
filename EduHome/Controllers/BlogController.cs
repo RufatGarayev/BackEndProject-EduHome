@@ -21,6 +21,8 @@ namespace EduHome.Controllers
         //---Pagination---//
         public IActionResult Index(int? page)
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             ViewBag.PageCount = Decimal.Ceiling((decimal)_context.LatestFromBlogs.Where(b => b.IsDeleted == false).Count() / 3);
             ViewBag.page = page;
             if (page == null)
@@ -34,6 +36,8 @@ namespace EduHome.Controllers
 
         public IActionResult Details(int? id)
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             BlogDetailsVM blogDetailsVM = new BlogDetailsVM
             {
                 BlogBanner = _context.BlogBanners.Where(bb => bb.IsDeleted == false).FirstOrDefault(),

@@ -21,6 +21,8 @@ namespace EduHome.Controllers
         }
         public IActionResult Index()
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             EventVM eventVM = new EventVM
             {
                 Events = _context.Events.Where(e => e.IsDeleted == false).Take(9).ToList()
@@ -30,6 +32,8 @@ namespace EduHome.Controllers
 
         public IActionResult Details(int? id)
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             EventDetailsVM eventDetailsVM = new EventDetailsVM
             {
                 WorkShops = _context.WorkShops.Where(ws => ws.IsDeleted == false && ws.EventId == id)
@@ -42,8 +46,6 @@ namespace EduHome.Controllers
                 BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.LatestFromBlogId == id)
                 .Include(bd => bd.LatestFromBlog).ToList(),
                 LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).ToList()
-                //LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id == id)
-                //.Include(lfb => lfb.BlogDetail).ToList(),
             };
             return View(eventDetailsVM);
         }

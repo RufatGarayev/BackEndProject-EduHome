@@ -9,10 +9,12 @@ using EduHome.DAL;
 using EduHome.Models;
 using System.Net.Mail;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EduHome.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class EventsController : Controller
     {
         private readonly AppDbContext _context;
@@ -174,12 +176,12 @@ namespace EduHome.Areas.Admin.Controllers
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential()
                 {
-                    UserName = "rufatg7@gmail.com",
-                    Password = "rufat1234567"
+                    UserName = "garayev947@gmail.com",
+                    Password = "rufatgarayev1993"
                 }
             };
-            MailAddress fromEmail = new MailAddress("rufatg7@gmail.com", "Rufat");
-            MailAddress toEmail = new MailAddress("email", "Rufat");
+            MailAddress fromEmail = new MailAddress("garayev947@gmail.com", "Rufat");
+            MailAddress toEmail = new MailAddress(email, "Rufat");
             MailMessage message = new MailMessage()
             {
                 From = fromEmail,

@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EduHome.DAL;
 using EduHome.Models;
+using EduHome.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EduHome.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class MapsController : Controller
     {
         private readonly AppDbContext _context;

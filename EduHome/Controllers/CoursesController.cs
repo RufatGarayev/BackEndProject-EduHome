@@ -29,6 +29,8 @@ namespace EduHome.Controllers
 
         public IActionResult Details(int? id)
         {
+            TempData["controllerName"] = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             CoursesDetailsVM coursesDetailsVM = new CoursesDetailsVM
             {   
                 CourseFeatures = _context.CourseFeatures.Where(cf => cf.IsDeleted == false && cf.CoursesWeOfferId==id)
@@ -49,7 +51,7 @@ namespace EduHome.Controllers
 
         public IActionResult Search(string search)
         {
-            IEnumerable<CoursesWeOffer> model = _context.CoursesWeOffers.Where(c => c.Name.Contains(search)).OrderByDescending(c => c.Id).Take(4);
+            IEnumerable<CoursesWeOffer> model = _context.CoursesWeOffers.Where(c => c.Name.Contains(search)).OrderByDescending(c => c.Id).Take(5);
             return PartialView("_CourseSearchPartial", model);
         }
     }
