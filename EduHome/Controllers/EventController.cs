@@ -41,8 +41,9 @@ namespace EduHome.Controllers
                 Tags = _context.Tags.Where(t => t.IsDeleted == false).ToList(),
                 BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.LatestFromBlogId == id)
                 .Include(bd => bd.LatestFromBlog).ToList(),
-                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id == id)
-                .Include(lfb => lfb.BlogDetail).ToList(),
+                LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false).ToList()
+                //LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id == id)
+                //.Include(lfb => lfb.BlogDetail).ToList(),
             };
             return View(eventDetailsVM);
         }

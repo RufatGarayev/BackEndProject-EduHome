@@ -40,7 +40,6 @@ namespace EduHome.Controllers
                 usersVM.Add(userVM);
             }
 
-            //return Json(usersVM);
             return View(usersVM);
         }
         #endregion
@@ -82,7 +81,7 @@ namespace EduHome.Controllers
             if (user == null) return NotFound();
             if (user.UserName == User.Identity.Name)
             {
-                return Content("............");
+                return Content("...");
             }
             UserVM userVM = await getUserVM(user);
             return View(userVM);
@@ -97,7 +96,7 @@ namespace EduHome.Controllers
             if (user == null) return NotFound();
             if (user.UserName == User.Identity.Name)
             {
-                return Content("............");
+                return Content("...");
             }
 
             IdentityResult addResult = await _userManager.AddToRoleAsync(user, role);

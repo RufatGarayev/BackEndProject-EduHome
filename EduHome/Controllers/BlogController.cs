@@ -42,7 +42,7 @@ namespace EduHome.Controllers
                 BlogDetails = _context.BlogDetails.Where(bd => bd.IsDeleted == false && bd.LatestFromBlogId == id)
                 .Include(bd => bd.LatestFromBlog).ToList(),
                 LatestFromBlogs = _context.LatestFromBlogs.Where(lfb => lfb.IsDeleted == false && lfb.Id==id)
-                .Include(lfb => lfb.BlogDetail).Take(3).ToList(),
+                .Include(lfb => lfb.BlogDetail).Take(3).ToList()
             };
             return View(blogDetailsVM);
         }

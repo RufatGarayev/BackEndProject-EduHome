@@ -2,6 +2,23 @@
 
 <!-- Header Area Start -->
 <header class="top">
+    <!--HeaderTop Start-->
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="header-top-left">
+                        <p>HAVE ANY QUESTION ?  +880 5698  598  6587</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="header-top-right text-right">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--HeaderTop End-->
     <div class="header-area two header-sticky">
         <div class="container">
             <div class="row">
@@ -25,12 +42,12 @@
                                     <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
                                     @if (!User.Identity.IsAuthenticated)
                                     {
-                                    <li><a asp-controller="Account" asp-action="Login">login</a></li>
+                                        <li><a asp-controller="Account" asp-action="Login">login</a></li>
                                     }
                                     else
                                     {
-                                    <h4 style="display:inline">@ViewBag.UserName</h4>
-                                    <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                        <h4 style="display:inline">@ViewBag.UserName</h4>
+                                        <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
                                     }
                                 </ul>
                             </nav>
@@ -47,7 +64,6 @@
                                     <form id="search-form">
                                         <input type="text" id="search-input" placeholder="Search here..." name="search" />
                                         <ul id="search-list">
-                                            
                                         </ul>
 
                                         <button type="submit">

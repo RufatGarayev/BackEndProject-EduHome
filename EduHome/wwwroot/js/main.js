@@ -147,31 +147,49 @@ $(document).ready(function () {
                     $("#search-list").append(res);
                 }
             });
-
-            $.ajax({
-                url: "/Blog/Search?search=" + searchInput,
-                type: "Get",
-                success: function (res) {
-                    $("#search-list").append(res);
-                }
-            });
-
-            $.ajax({
-                url: "/Event/Search?search=" + searchInput,
-                type: "Get",
-                success: function (res) {
-                    $("#search-list").append(res);
-                }
-            });
-
-            $.ajax({
-                url: "/Teacher/Search?search=" + searchInput,
-                type: "Get",
-                success: function (res) {
-                    $("#search-list").append(res);
-                }
-            });
         }
     })
 
+    $('#search-list').on('click', 'li', function () {
+        var click_text = $(this).text().split('|');
+        $('#search-input').val($.trim(click_text[0]));
+        $("#search-list").html('');
+    });
+
 })
+
+
+
+//$(document).ready(function () {
+//    $('#search-input').keyup(function () {
+//        $('#search-list').html('');
+//        $('#state').val('');
+//        var searchField = $('#search-input').val();
+
+//        $.ajax({
+//                url: "/Courses/Search?search=" + searchInput,
+//                type: "Get",
+//                success: function (res) {
+//                    $("#search-list").append(res);
+//                }
+//            });
+//    });
+
+//    $('#search-list').on('click', 'li', function () {
+//        var click_text = $(this).text().split('|');
+//        $('#search-input').val($.trim(click_text[0]));
+//        $("#search-list").html('');
+//    });
+//});
+
+
+
+
+//        //$.getJSON('data.json', function (data) {
+//        //    $.each(data, function (key, value) {
+//        //        if (value.name.search(expression) != -1 || value.location.search(expression) != -1) {
+//        //            $('#search-list').append('<li class="list-group-item link-class"><img src="' + value.image + '" height="40" width="40" class="img-thumbnail" /> ' + value.name + ' | <span class="text-muted">' + value.location + '</span></li>');
+//        //        }
+//        //    });
+//        //});
+
